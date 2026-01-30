@@ -208,4 +208,14 @@
     .dark #navbar.scrolled {
         background-color: rgba(2, 6, 23, 0.95); /* darkBg */
     }
+
+    /* Logo visibility fix - invert text colors in dark mode */
+    .logo-img {
+        display: block;
+    }
+    
+    /* In dark mode, invert the SVG to make white text visible */
+    .dark .logo-img {
+        filter: invert(1) hue-rotate(180deg);
+    }
   }
