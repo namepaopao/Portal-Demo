@@ -209,13 +209,20 @@
         background-color: rgba(2, 6, 23, 0.95); /* darkBg */
     }
 
-    /* Logo visibility fix - invert text colors in dark mode */
-    .logo-img {
+    /* Logo visibility - show/hide based on theme */
+    .logo-light {
         display: block;
     }
     
-    /* In dark mode, invert the SVG to make white text visible */
-    .dark .logo-img {
-        filter: invert(1) hue-rotate(180deg);
+    .logo-dark {
+        display: none;
+    }
+    
+    .dark .logo-light {
+        display: none;
+    }
+    
+    .dark .logo-dark {
+        display: block;
     }
   }

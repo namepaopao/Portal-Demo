@@ -45,7 +45,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex-shrink-0 flex items-center group cursor-pointer" onclick="window.location.href='index.html'">
-                    <img src="../images/logo.svg" alt="Lamipak Logo" class="w-10 h-10 group-hover:scale-110 transition-transform duration-300 logo-img" />
+                    <img src="../images/logo.svg" alt="Lamipak Logo" class="w-10 h-10 group-hover:scale-110 transition-transform duration-300 logo-light" />
+                    <img src="../images/logo-dark.svg" alt="Lamipak Logo" class="w-10 h-10 group-hover:scale-110 transition-transform duration-300 logo-dark" />
                     <span class="ml-3 font-bold text-2xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-lemei-700 to-lemei-500 dark:from-white dark:to-lemei-200" data-i18n="brand_name">乐美包装</span>
                 </div>
 
@@ -134,7 +135,7 @@
                                 </div>
                                 <button onclick="simulateScan()" class="mt-8 px-6 py-2 bg-lemei-600 text-white rounded-full text-sm font-bold shadow-lg transform active:scale-95 transition-all" data-i18n="btn_simulate_scan">点击模拟扫码</button>
                             </div>
-                            
+
                             <!-- 模拟结果界面 -->
                             <div id="result-screen" class="absolute inset-0 bg-slate-50 dark:bg-slate-900 opacity-0 pointer-events-none transition-opacity duration-500 overflow-y-auto">
                                 <div class="bg-lemei-600 h-40 relative rounded-b-[2rem] flex items-center justify-center">
@@ -147,7 +148,7 @@
                                 <div class="p-6 text-center -mt-2">
                                     <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-1" data-i18n="result_title">正品验证通过</h3>
                                     <p class="text-xs text-slate-500 mb-6"><span data-i18n="result_time_label">查询时间:</span> <span id="scan-time"></span></p>
-                                    
+
                                     <div class="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm border border-slate-100 dark:border-slate-700 text-left mb-4">
                                         <div class="text-xs text-slate-400 mb-1" data-i18n="result_product">产品名称</div>
                                         <div class="font-bold text-slate-700 dark:text-slate-200 mb-3" data-i18n="result_product_val">乐美无菌砖包 250ml</div>
@@ -180,7 +181,7 @@
                     <p class="text-slate-500 dark:text-slate-400 mb-8" data-i18n="data_desc">
                         每一次扫码都会转化为有价值的数据资产。通过我们的数据中台，您可以实时查看扫码热力图、消费者画像及库存动态。
                     </p>
-                    
+
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-center text-slate-700 dark:text-slate-300">
                             <div class="w-2 h-2 rounded-full bg-lemei-500 mr-3"></div>
