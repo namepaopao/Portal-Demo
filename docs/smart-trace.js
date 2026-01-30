@@ -29,6 +29,22 @@ const translations = {
     data_desc:
       "每一次扫码都会转化为有价值的数据资产。通过我们的数据中台，您可以实时查看扫码热力图、消费者画像及库存动态。",
     btn_learn_platform: "了解数据平台",
+
+    // Added translations
+    scan_screen_text: "扫描中",
+    btn_simulate_scan: "点击模拟扫码",
+    result_title: "正品验证通过",
+    result_time_label: "查询时间:",
+    result_product: "产品名称",
+    result_product_val: "乐美无菌砖包 250ml",
+    result_batch: "生产批次",
+    result_date_prod: "生产日期",
+    result_date_exp: "保质期至",
+    btn_rescan: "重新扫描",
+    label_enterprise_view: "企业端视图",
+    stat_geo: "扫码地理位置分布",
+    stat_time: "扫码时间段分析",
+    stat_repurchase: "复购率统计",
   },
   en: {
     brand_name: "Lamipak",
@@ -54,6 +70,22 @@ const translations = {
     data_desc:
       "Every scan turns into a valuable data asset. View scan heatmaps, consumer profiles, and inventory dynamics in real-time through our data platform.",
     btn_learn_platform: "Learn Data Platform",
+
+    // Added translations
+    scan_screen_text: "Scanning",
+    btn_simulate_scan: "Simulate Scan",
+    result_title: "Authenticity Verified",
+    result_time_label: "Query Time:",
+    result_product: "Product Name",
+    result_product_val: "Lamipak Aseptic Brick 250ml",
+    result_batch: "Batch Number",
+    result_date_prod: "Production Date",
+    result_date_exp: "Expiration Date",
+    btn_rescan: "Scan Again",
+    label_enterprise_view: "Enterprise View",
+    stat_geo: "Scan Geo-Distribution",
+    stat_time: "Scan Time Analysis",
+    stat_repurchase: "Repurchase Rate Stats",
   },
 };
 

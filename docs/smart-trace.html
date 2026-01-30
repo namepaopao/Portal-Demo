@@ -132,9 +132,9 @@
                                     <div class="absolute inset-0 border-t-2 border-r-2 border-lemei-500 w-8 h-8 -top-1 -right-1"></div>
                                     <div class="absolute inset-0 border-b-2 border-l-2 border-lemei-500 w-8 h-8 -bottom-1 -left-1"></div>
                                     <div class="absolute inset-0 border-b-2 border-r-2 border-lemei-500 w-8 h-8 -bottom-1 -right-1"></div>
-                                    <span class="text-xs text-lemei-500 font-bold tracking-widest uppercase">Scanning</span>
+                                    <span class="text-xs text-lemei-500 font-bold tracking-widest uppercase" data-i18n="scan_screen_text">Scanning</span>
                                 </div>
-                                <button onclick="simulateScan()" class="mt-8 px-6 py-2 bg-lemei-600 text-white rounded-full text-sm font-bold shadow-lg transform active:scale-95 transition-all">点击模拟扫码</button>
+                                <button onclick="simulateScan()" class="mt-8 px-6 py-2 bg-lemei-600 text-white rounded-full text-sm font-bold shadow-lg transform active:scale-95 transition-all" data-i18n="btn_simulate_scan">点击模拟扫码</button>
                             </div>
                             
                             <!-- 模拟结果界面 -->
@@ -147,28 +147,28 @@
                                     </div>
                                 </div>
                                 <div class="p-6 text-center -mt-2">
-                                    <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-1">正品验证通过</h3>
-                                    <p class="text-xs text-slate-500 mb-6">查询时间: <span id="scan-time"></span></p>
+                                    <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-1" data-i18n="result_title">正品验证通过</h3>
+                                    <p class="text-xs text-slate-500 mb-6"><span data-i18n="result_time_label">查询时间:</span> <span id="scan-time"></span></p>
                                     
                                     <div class="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm border border-slate-100 dark:border-slate-700 text-left mb-4">
-                                        <div class="text-xs text-slate-400 mb-1">产品名称</div>
-                                        <div class="font-bold text-slate-700 dark:text-slate-200 mb-3">乐美无菌砖包 250ml</div>
-                                        <div class="text-xs text-slate-400 mb-1">生产批次</div>
+                                        <div class="text-xs text-slate-400 mb-1" data-i18n="result_product">产品名称</div>
+                                        <div class="font-bold text-slate-700 dark:text-slate-200 mb-3" data-i18n="result_product_val">乐美无菌砖包 250ml</div>
+                                        <div class="text-xs text-slate-400 mb-1" data-i18n="result_batch">生产批次</div>
                                         <div class="font-mono text-sm text-slate-700 dark:text-slate-200">BATCH-2026-01-30</div>
                                     </div>
 
                                     <div class="grid grid-cols-2 gap-3 mb-6">
                                         <div class="bg-indigo-50 dark:bg-indigo-900/30 p-3 rounded-xl text-center">
-                                            <div class="text-indigo-600 dark:text-indigo-400 font-bold text-sm">生产日期</div>
+                                            <div class="text-indigo-600 dark:text-indigo-400 font-bold text-sm" data-i18n="result_date_prod">生产日期</div>
                                             <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">2026.01.15</div>
                                         </div>
                                         <div class="bg-emerald-50 dark:bg-emerald-900/30 p-3 rounded-xl text-center">
-                                            <div class="text-emerald-600 dark:text-emerald-400 font-bold text-sm">保质期至</div>
+                                            <div class="text-emerald-600 dark:text-emerald-400 font-bold text-sm" data-i18n="result_date_exp">保质期至</div>
                                             <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">2026.07.15</div>
                                         </div>
                                     </div>
 
-                                    <button onclick="resetScan()" class="text-sm text-lemei-600 font-bold hover:underline">重新扫描</button>
+                                    <button onclick="resetScan()" class="text-sm text-lemei-600 font-bold hover:underline" data-i18n="btn_rescan">重新扫描</button>
                                 </div>
                             </div>
                         </div>
@@ -177,7 +177,7 @@
 
                 <!-- 右侧：数据后台 -->
                 <div class="md:w-1/2 p-10 flex flex-col justify-center">
-                    <div class="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold mb-4 w-fit">企业端视图</div>
+                    <div class="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold mb-4 w-fit" data-i18n="label_enterprise_view">企业端视图</div>
                     <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-6" data-i18n="data_title">实时数据洞察</h2>
                     <p class="text-slate-500 dark:text-slate-400 mb-8" data-i18n="data_desc">
                         每一次扫码都会转化为有价值的数据资产。通过我们的数据中台，您可以实时查看扫码热力图、消费者画像及库存动态。
@@ -186,15 +186,15 @@
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-center text-slate-700 dark:text-slate-300">
                             <div class="w-2 h-2 rounded-full bg-lemei-500 mr-3"></div>
-                            <span>扫码地理位置分布</span>
+                            <span data-i18n="stat_geo">扫码地理位置分布</span>
                         </li>
                         <li class="flex items-center text-slate-700 dark:text-slate-300">
                             <div class="w-2 h-2 rounded-full bg-lemei-500 mr-3"></div>
-                            <span>扫码时间段分析</span>
+                            <span data-i18n="stat_time">扫码时间段分析</span>
                         </li>
                         <li class="flex items-center text-slate-700 dark:text-slate-300">
                             <div class="w-2 h-2 rounded-full bg-lemei-500 mr-3"></div>
-                            <span>复购率统计</span>
+                            <span data-i18n="stat_repurchase">复购率统计</span>
                         </li>
                     </ul>
 
