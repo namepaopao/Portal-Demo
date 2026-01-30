@@ -1,8 +1,10 @@
 // --- 核心配置与状态 ---
 const config = {
-  currentLang: localStorage.getItem("lemei-lang") || "zh",
-  isDark: localStorage.getItem("lemei-theme") === "dark",
+  currentLang: localStorage.getItem("lamipak-lang") || "zh",
+  isDark: localStorage.getItem("lamipak-theme") === "dark",
 };
+
+console.log("App Initialized. Config:", config);
 
 const translations = {
   zh: {
@@ -92,7 +94,7 @@ const translations = {
   },
   en: {
     title: "Lamipak Packaging - Smart Packaging Solutions",
-    brand_name: "Lamipak Pack",
+    brand_name: "Lamipak",
     brand_full: "Lamipak Packaging",
     nav_home: "Home",
     nav_trace: "Smart Trace",
@@ -188,6 +190,7 @@ const translations = {
 function updateLanguage() {
   const lang = config.currentLang;
   const dict = translations[lang];
+  console.log("Update Language:", lang);
 
   // 更新普通的文本内容
   document.querySelectorAll("[data-i18n]").forEach((el) => {
@@ -205,10 +208,12 @@ function updateLanguage() {
     }
   });
 
-  // 更新按钮显示
-  document.getElementById("langToggle").textContent =
-    lang === "zh" ? "EN" : "中文";
-  localStorage.setItem("lemei-lang", lang);
+  // 更新按钮显示能
+  const langToggle = document.getElementById("langToggle");
+  if (langToggle) {
+    langToggle.textContent = lang === "zh" ? "EN" : "中文";
+  }
+  localStorage.setItem("lamipak-lang", lang);
 }
 
 function toggleLanguage() {
@@ -218,12 +223,13 @@ function toggleLanguage() {
 
 // 2. 暗色模式切换
 function applyTheme() {
+  console.log("Apply Theme:", config.isDark ? "dark" : "light");
   if (config.isDark) {
     document.documentElement.classList.add("dark");
   } else {
     document.documentElement.classList.remove("dark");
   }
-  localStorage.setItem("lemei-theme", config.isDark ? "dark" : "light");
+  localStorage.setItem("lamipak-theme", config.isDark ? "dark" : "light");
 }
 
 function toggleDarkMode() {
@@ -295,18 +301,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.getElementById("navbar");
   const heroBg = document.querySelector(".hero-bg");
 
-  window.addEventListener("scroll", () => {
-    // 导航栏滚动效果
-    if (window.scrollY > 20) {
-      navbar.classList.add("scrolled");
-    } else {
-      navbar.classList.remove("scrolled");
-    }
+  if (navbar) {
+    window.addEventListener("scroll", () => {
+      // 导航栏滚动效果
+      if (window.scrollY > 20) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
 
-    // 极简视差效果
-    if (heroBg) {
-      const scrollValue = window.scrollY;
-      heroBg.style.transform = `translateY(${scrollValue * 0.15}px)`;
-    }
-  });
+      // 极简视差效果
+      if (heroBg) {
+        const scrollValue = window.scrollY;
+        heroBg.style.transform = `translateY(${scrollValue * 0.15}px)`;
+      }
+    });
+  }
 });

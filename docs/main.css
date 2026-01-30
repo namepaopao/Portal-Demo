@@ -1,274 +1,211 @@
-/* --- 全局基础样式 --- */
-:root {
-    --lemei-blue: #0273c7;
-    --lemei-accent: #5DA333;
-}
-
-::selection {
-    background-color: rgba(2, 115, 199, 0.2);
-    color: inherit;
-}
-
-/* 隐藏滚动条但保留功能 */
-::-webkit-scrollbar {
-    width: 6px;
-}
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 10px;
-}
-.dark ::-webkit-scrollbar-thumb {
-    background: #334155;
-}
-
-/* --- 核心组件样式 (标准 CSS 实现，兼容 CDN) --- */
-
-/* 导航链接 */
-.nav-link {
-    color: #475569; /* slate-600 */
-    font-weight: 600;
-    font-size: 0.875rem; /* text-sm */
-    letter-spacing: 0.025em; /* tracking-wide */
-    transition: all 0.3s ease;
-    position: relative;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-}
-.dark .nav-link {
-    color: #94a3b8; /* slate-400 */
-}
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 0.125rem;
-    background-color: var(--lemei-blue);
-    transition: all 0.3s ease;
-}
-.nav-link:hover {
-    color: var(--lemei-blue);
-}
-.dark .nav-link:hover {
-    color: white;
-}
-.nav-link:hover::after {
-    width: 100%;
-}
-
-/* 控制按钮 */
-.control-btn {
-    font-size: 0.625rem; /* text-[10px] */
-    font-weight: 700;
-    color: #64748b; /* slate-500 */
-    text-transform: uppercase;
-    padding: 0.375rem 0.75rem;
-    border-radius: 0.5rem; /* rounded-lg */
-    border: 1px solid #e2e8f0; /* slate-200 */
-    transition: all 0.2s ease;
-    cursor: pointer;
-}
-.dark .control-btn {
-    border-color: #1e293b; /* slate-800 */
-}
-.control-btn:hover {
-    color: var(--lemei-blue);
-}
-.dark .control-btn:hover {
-    color: white;
-    background-color: #1e293b;
-}
-.control-btn:active {
-    transform: scale(0.95);
-}
-
-/* --- 按钮系统 --- */
-.btn-primary {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background-color: var(--lemei-blue);
-    color: white;
-    border-radius: 9999px;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    text-align: center;
-    box-shadow: 0 10px 15px -3px rgba(2, 115, 199, 0.2);
-}
-.btn-primary:hover {
-    background-color: #035ba1; /* lemei-700 */
-    box-shadow: 0 25px 50px -12px rgba(2, 115, 199, 0.4);
-    transform: translateY(-1px);
-}
-.btn-primary:active {
-    transform: scale(0.95);
-}
-
-.btn-secondary {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background-color: white;
-    color: var(--lemei-blue);
-    border-radius: 9999px;
-    font-weight: 700;
-    border: 1px solid #e2e8f0;
-    transition: all 0.3s ease;
-    text-align: center;
-}
-.dark .btn-secondary {
-    background-color: #0f172a; /* slate-900 */
-    color: white;
-    border-color: #1e293b;
-}
-.btn-secondary:hover {
-    border-color: #38acf7; /* lemei-400 */
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    transform: translateY(-1px);
-}
-
-/* --- 导航栏动态效果 --- */
-#navbar.scrolled {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-color: #f1f5f9;
-    box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.05);
-}
-.dark #navbar.scrolled {
-    background-color: rgba(2, 6, 23, 0.8);
-    border-color: #1e293b;
-    box-shadow: none;
-}
-#navbar:not(.scrolled) {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
-
-/* --- 特效样式 --- */
-
-/* Hero 背景切片 */
-.clip-parallax {
-    clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
-}
-@media (max-width: 768px) {
-    .clip-parallax {
-        clip-path: none;
-        width: 100% !important;
-        opacity: 0.3 !important;
+@layer components {
+    :root {
+      --lamipak-blue: #0273c7;
+      --lamipak-accent: #5DA333;
     }
-}
 
-/* 滚动渐入动画 */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+    .hero-bg {
+      background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-position: center;
+      /* clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%); */
+      mask-image: linear-gradient(to right, transparent, black 30%);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 30%);
+    }
 
-/* 交互卡片 */
-.advantage-card {
-    padding: 2rem;
-    border-radius: 1.5rem;
-    background-color: #f8fafc; /* slate-50 */
-    border: 1px solid #f1f5f9;
-    transition: all 0.5s ease;
-}
-.dark .advantage-card {
-    background-color: rgba(15, 23, 42, 0.5);
-    border-color: rgba(30, 41, 59, 0.5);
-}
-.advantage-card:hover {
-    background-color: white;
-    transform: translateY(-4px);
-    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.08);
-}
-.dark .advantage-card:hover {
-    background-color: #1e293b;
-}
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      color: white;
+      background-color: var(--lamipak-blue);
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 300ms;
+      box-shadow: 0 4px 6px -1px rgba(2, 115, 199, 0.2), 0 2px 4px -1px rgba(2, 115, 199, 0.1);
+    }
 
-.product-card {
-    background-color: white;
-    border-radius: 2.5rem;
-    overflow: hidden;
-    border: 1px solid #f1f5f9;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-    transition: all 0.7s ease;
-}
-.dark .product-card {
-    background-color: #0f172a;
-    border-color: #1e293b;
-}
-.product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 35px 60px -15px rgba(15, 23, 42, 0.15);
-}
+    .btn-primary:hover {
+      background-color: #035ba1; /* lamipak-700 */
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(2, 115, 199, 0.3), 0 4px 6px -2px rgba(2, 115, 199, 0.15);
+    }
 
-.image-container {
-    height: 16rem;
-    overflow: hidden;
-    position: relative;
-}
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      color: var(--lamipak-blue);
+      background-color: transparent;
+      border-width: 2px;
+      border-color: #bae0fd; /* lamipak-200 */
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 300ms;
+    }
 
-.card-badge {
-    position: absolute;
-    top: 1.25rem;
-    right: 1.25rem;
-    font-size: 0.625rem; /* 10px */
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    text-transform: uppercase;
-}
+    .btn-secondary:hover {
+      background-color: #f0f7ff; /* lamipak-50 */
+      border-color: var(--lamipak-blue);
+    }
 
-/* 页脚链接 */
-.footer-link {
-    display: block;
-    color: #94a3b8; /* slate-400 */
-    transition: color 0.3s ease;
-    text-decoration: none;
-}
-.footer-link:hover {
-    color: var(--lemei-blue);
-}
-.dark .footer-link:hover {
-    color: white;
-}
+    .dark .btn-secondary {
+       color: #7cc8fb; /* lamipak-300 */
+       border-color: #0c416e; /* lamipak-900 */
+    }
 
-/* --- 自定义动画 --- */
-@keyframes slide-up {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-.animate-slide-up {
-    animation: slide-up 0.5s ease-out forwards;
-}
+    .dark .btn-secondary:hover {
+       background-color: rgba(12, 65, 110, 0.3);
+       border-color: #7cc8fb;
+    }
 
-/* 二维码特效 */
-.qr-box {
-    position: relative;
-    overflow: hidden;
-}
-.qr-box::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: all 0.7s ease;
-}
-.qr-box:hover::after {
-    left: 100%;
-}
+    .nav-link {
+        font-weight: 500;
+        color: #475569; /* slate-600 */
+        transition-property: color;
+        transition-duration: 300ms;
+    }
+    .dark .nav-link {
+        color: #94a3b8; /* slate-400 */
+    }
+    .nav-link:hover {
+        color: var(--lamipak-blue);
+    }
+    .dark .nav-link:hover {
+        color: white;
+    }
+
+    .card-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        padding: 0.25rem 0.75rem;
+        border-radius: 0.5rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: white;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+        backdrop-filter: blur(4px);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: #cbd5e1;
+        border-radius: 20px;
+    }
+    .dark ::-webkit-scrollbar-thumb {
+        background-color: #334155;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--lamipak-blue);
+    }
+
+    /* Animation Utilities */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .control-btn {
+        border-radius: 0.375rem; /* rounded */
+        border-width: 1px;
+        border-color: #e2e8f0; /* gray-200 */
+        font-size: 0.875rem; /* text-sm */
+        font-weight: 500;
+        text-transform: uppercase;
+        color: #64748b; /* gray-500 */
+        transition: all 0.3s;
+    }
+    .dark .control-btn {
+        border-color: #374151; /* gray-700 */
+        color: #9ca3af; /* gray-400 */
+    }
+    .control-btn:hover {
+        color: var(--lamipak-blue);
+    }
+    .dark .control-btn:hover {
+        color: white;
+    }
+
+    .product-card {
+        background-color: white;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        border-width: 1px;
+        border-color: #f1f5f9; /* slate-100 */
+        transition: all 0.5s;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    }
+    .dark .product-card {
+        background-color: #0f172a; /* darkCard */
+        border-color: #1e293b; /* slate-800 */
+    }
+    .product-card:hover {
+        transform: translateY(-0.5rem);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        border-color: #e2e8f0;
+    }
+    .dark .product-card:hover {
+        border-color: #334155;
+    }
+
+    .image-container {
+        position: relative;
+        height: 16rem;
+        overflow: hidden;
+    }
+    .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .advantage-card {
+        padding: 2rem;
+        border-radius: 1.5rem;
+        background-color: white;
+        border: 1px solid #f8fafc;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        transition: all 0.3s;
+    }
+    .dark .advantage-card {
+        background-color: rgba(30, 41, 59, 0.5); /* darkCard/50 */
+        border-color: #1e293b;
+    }
+    .advantage-card:hover {
+        background-color: #f8fafc; /* slate-50 */
+        transform: translateY(-4px);
+    }
+    .dark .advantage-card:hover {
+        background-color: #1e293b; /* slate-800 */
+    }
+
+    #navbar.scrolled {
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+    .dark #navbar.scrolled {
+        background-color: rgba(2, 6, 23, 0.95); /* darkBg */
+    }
+  }
