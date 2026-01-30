@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="trace_page_title">一包一码智能溯源 - 乐美包装</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        lemei: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            200: '#bae0fd',
+                            300: '#7cc8fb',
+                            400: '#38acf7',
+                            500: '#0e91e9',
+                            600: '#0273c7',
+                            700: '#035ba1',
+                            800: '#074d85',
+                            900: '#0c416e',
+                            950: '#082949',
+                        },
+                        accent: '#5DA333',
+                        darkBg: '#020617',
+                        darkCard: '#0f172a',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Noto Sans SC', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body class="font-sans text-slate-900 bg-white dark:bg-darkBg dark:text-slate-300 transition-colors duration-500">
+
+    <!-- 导航栏 -->
+    <nav class="fixed w-full z-50 transition-all duration-500 border-b border-transparent bg-white/95 dark:bg-darkBg/95 backdrop-blur-lg shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center group cursor-pointer" onclick="window.location.href='index.html'">
+                    <div class="relative w-10 h-10 overflow-hidden rounded-xl bg-lemei-600 shadow-lg shadow-lemei-500/20 group-hover:rotate-12 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+                    </div>
+                    <span class="ml-3 font-bold text-2xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-lemei-700 to-lemei-500 dark:from-white dark:to-lemei-200" data-i18n="brand_name">乐美包装</span>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleLanguage()" class="control-btn px-3 py-2" id="langToggle">EN</button>
+                    <button onclick="toggleDarkMode()" class="control-btn px-3 py-2" id="themeToggle">
+                        <svg id="sunIcon" class="w-5 h-5 hidden dark:block text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        <svg id="moonIcon" class="w-5 h-5 block dark:hidden text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 118.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    </button>
+                    <a href="index.html" class="px-6 py-2.5 rounded-full border-2 border-lemei-600 text-lemei-600 dark:text-lemei-300 dark:border-lemei-500 font-semibold hover:bg-lemei-50 dark:hover:bg-lemei-900/30 transition-all" data-i18n="back_home">返回首页</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header class="pt-32 pb-20 bg-slate-50 dark:bg-darkBg relative overflow-hidden">
+        <div class="absolute inset-0 bg-grid-slate-100/[0.2] bg-[bottom_1px_center] dark:bg-grid-slate-700/[0.2] [mask-image:linear-gradient(to_bottom,transparent,black)]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-block px-4 py-1 rounded-lg bg-lemei-100 dark:bg-lemei-900/40 text-lemei-700 dark:text-lemei-300 font-bold text-xs tracking-widest uppercase mb-6 fade-in" data-i18n="trace_tag_header">One Pack One Code</div>
+            <h1 class="text-5xl lg:text-7xl font-extrabold text-slate-900 dark:text-white mb-8 fade-in" data-i18n="trace_header_title">智能溯源 链接未来</h1>
+            <p class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-12 fade-in" data-i18n="trace_header_desc">
+                通过独一无二的二维码身份证，打通供应链全链路，实现产品防伪、渠道管控与数字化营销。
+            </p>
+            <div class="flex justify-center gap-4 fade-in">
+                <button onclick="document.getElementById('demo-section').scrollIntoView({behavior: 'smooth'})" class="px-8 py-3 bg-lemei-600 text-white rounded-full font-bold hover:bg-lemei-700 transition-all shadow-lg hover:shadow-lemei-500/30" data-i18n="btn_try_demo">在线演示</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 核心价值 -->
+    <section class="py-20 bg-white dark:bg-darkBg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Value 1 -->
+                <div class="text-center group fade-in">
+                    <div class="w-16 h-16 mx-auto bg-lemei-100 dark:bg-lemei-900/50 rounded-2xl flex items-center justify-center text-lemei-600 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4" data-i18n="val_1_title">正品防伪</h3>
+                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="val_1_desc">
+                        基于一物一码技术，赋予每个产品唯一的身份标识，消费者扫码即可查验真伪，有效打击假冒伪劣。
+                    </p>
+                </div>
+                <!-- Value 2 -->
+                <div class="text-center group fade-in" style="animation-delay: 0.2s">
+                    <div class="w-16 h-16 mx-auto bg-accent/10 rounded-2xl flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4" data-i18n="val_2_title">渠道管控</h3>
+                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="val_2_desc">
+                        实时监控产品流向，自动预警窜货行为。帮助品牌商掌控各级经销商库存，优化供应链管理。
+                    </p>
+                </div>
+                <!-- Value 3 -->
+                <div class="text-center group fade-in" style="animation-delay: 0.4s">
+                    <div class="w-16 h-16 mx-auto bg-purple-100 dark:bg-purple-900/50 rounded-2xl flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4" data-i18n="val_3_title">数字化营销</h3>
+                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="val_3_desc">
+                        扫码领红包、积分抽奖等多种互动方式，建立品牌与消费者的直接连接，沉淀私域流量。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 演示区域 -->
+    <section id="demo-section" class="py-24 bg-slate-50 dark:bg-slate-900/50">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="bg-white dark:bg-darkCard rounded-[2.5rem] shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row fade-in">
+                <!-- 左侧：模拟手机/扫描 -->
+                <div class="md:w-1/2 bg-slate-100 dark:bg-slate-800 p-8 flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556742049-09329e2f7bf2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')] bg-cover opacity-10"></div>
+                    <div class="relative z-10 w-64 h-[500px] bg-black rounded-[3rem] p-3 shadow-2xl border-4 border-slate-300 dark:border-slate-600">
+                        <div class="w-full h-full bg-white dark:bg-slate-900 rounded-[2.2rem] overflow-hidden relative">
+                            <!-- 模拟扫描界面 -->
+                            <div id="scan-screen" class="absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-500">
+                                <div class="w-48 h-48 border-2 border-lemei-400 rounded-lg relative animate-pulse flex items-center justify-center mb-4">
+                                    <div class="absolute inset-0 border-t-2 border-l-2 border-lemei-500 w-8 h-8 -top-1 -left-1"></div>
+                                    <div class="absolute inset-0 border-t-2 border-r-2 border-lemei-500 w-8 h-8 -top-1 -right-1"></div>
+                                    <div class="absolute inset-0 border-b-2 border-l-2 border-lemei-500 w-8 h-8 -bottom-1 -left-1"></div>
+                                    <div class="absolute inset-0 border-b-2 border-r-2 border-lemei-500 w-8 h-8 -bottom-1 -right-1"></div>
+                                    <span class="text-xs text-lemei-500 font-bold tracking-widest uppercase">Scanning</span>
+                                </div>
+                                <button onclick="simulateScan()" class="mt-8 px-6 py-2 bg-lemei-600 text-white rounded-full text-sm font-bold shadow-lg transform active:scale-95 transition-all">点击模拟扫码</button>
+                            </div>
+                            
+                            <!-- 模拟结果界面 -->
+                            <div id="result-screen" class="absolute inset-0 bg-slate-50 dark:bg-slate-900 opacity-0 pointer-events-none transition-opacity duration-500 overflow-y-auto">
+                                <div class="bg-lemei-600 h-40 relative rounded-b-[2rem] flex items-center justify-center">
+                                    <div class="bg-white p-3 rounded-xl shadow-lg mt-8">
+                                        <div class="text-green-500">
+                                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-6 text-center -mt-2">
+                                    <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-1">正品验证通过</h3>
+                                    <p class="text-xs text-slate-500 mb-6">查询时间: <span id="scan-time"></span></p>
+                                    
+                                    <div class="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm border border-slate-100 dark:border-slate-700 text-left mb-4">
+                                        <div class="text-xs text-slate-400 mb-1">产品名称</div>
+                                        <div class="font-bold text-slate-700 dark:text-slate-200 mb-3">乐美无菌砖包 250ml</div>
+                                        <div class="text-xs text-slate-400 mb-1">生产批次</div>
+                                        <div class="font-mono text-sm text-slate-700 dark:text-slate-200">BATCH-2026-01-30</div>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-3 mb-6">
+                                        <div class="bg-indigo-50 dark:bg-indigo-900/30 p-3 rounded-xl text-center">
+                                            <div class="text-indigo-600 dark:text-indigo-400 font-bold text-sm">生产日期</div>
+                                            <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">2026.01.15</div>
+                                        </div>
+                                        <div class="bg-emerald-50 dark:bg-emerald-900/30 p-3 rounded-xl text-center">
+                                            <div class="text-emerald-600 dark:text-emerald-400 font-bold text-sm">保质期至</div>
+                                            <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">2026.07.15</div>
+                                        </div>
+                                    </div>
+
+                                    <button onclick="resetScan()" class="text-sm text-lemei-600 font-bold hover:underline">重新扫描</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧：数据后台 -->
+                <div class="md:w-1/2 p-10 flex flex-col justify-center">
+                    <div class="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold mb-4 w-fit">企业端视图</div>
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-6" data-i18n="data_title">实时数据洞察</h2>
+                    <p class="text-slate-500 dark:text-slate-400 mb-8" data-i18n="data_desc">
+                        每一次扫码都会转化为有价值的数据资产。通过我们的数据中台，您可以实时查看扫码热力图、消费者画像及库存动态。
+                    </p>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center text-slate-700 dark:text-slate-300">
+                            <div class="w-2 h-2 rounded-full bg-lemei-500 mr-3"></div>
+                            <span>扫码地理位置分布</span>
+                        </li>
+                        <li class="flex items-center text-slate-700 dark:text-slate-300">
+                            <div class="w-2 h-2 rounded-full bg-lemei-500 mr-3"></div>
+                            <span>扫码时间段分析</span>
+                        </li>
+                        <li class="flex items-center text-slate-700 dark:text-slate-300">
+                            <div class="w-2 h-2 rounded-full bg-lemei-500 mr-3"></div>
+                            <span>复购率统计</span>
+                        </li>
+                    </ul>
+
+                    <button class="px-6 py-2 border-2 border-slate-200 dark:border-slate-700 rounded-xl text-slate-600 dark:text-slate-300 font-bold hover:border-lemei-600 hover:text-lemei-600 transition-colors text-left w-fit flex items-center">
+                        <span data-i18n="btn_learn_platform">了解数据平台</span>
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 dark:bg-darkBg border-t border-slate-100 dark:border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm text-slate-500 dark:text-slate-400">
+                &copy; 2026 <span data-i18n="brand_full">乐美包装 Lamipak Packaging</span>. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="smart-trace.js"></script>
+</body>
+</html>

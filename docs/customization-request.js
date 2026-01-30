@@ -463,8 +463,26 @@ const initAnimations = () => {
   });
 };
 
+// 8. 处理 URL 参数
+function handleUrlParams() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const type = urlParams.get("type");
+  if (type && packageTypes.some((p) => p.id === type)) {
+    config.selectedPackage = type;
+
+    // 滚动到包材选择区域
+    setTimeout(() => {
+      const packageSection = document.getElementById("packageOptions");
+      if (packageSection) {
+        packageSection.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }, 500);
+  }
+}
+
 // --- 初始化 ---
 document.addEventListener("DOMContentLoaded", () => {
+  handleUrlParams(); // 先处理URL参数
   updateLanguage();
   applyTheme();
   renderPackageOptions();
