@@ -6,9 +6,9 @@ const config = {
 
 const translations = {
   zh: {
-    title: "乐美包装 Lemei Packaging - 智能包装解决方案",
+    title: "乐美包装 Lamipak Packaging - 智能包装解决方案",
     brand_name: "乐美包装",
-    brand_full: "乐美包装 Lemei Packaging",
+    brand_full: "乐美包装 Lamipak Packaging",
     nav_home: "首页",
     nav_trace: "一包一码",
     nav_custom: "定制服务",
@@ -41,7 +41,7 @@ const translations = {
     trace_title: "一包一码 · 数字化链接",
     trace_desc:
       "赋予每一个包装唯一的“数字身份证”，实现全链路追溯、防伪营销与消费者互动。",
-    trace_input_hint: "输入模拟码（如：LEMEI2024）体验溯源",
+    trace_input_hint: "输入模拟码（如：LAMIPAK2024）体验溯源",
     trace_input_placeholder: "请输入包装上的代码",
     trace_btn_query: "查询",
     trace_loading: "正在查询区块链数据...",
@@ -91,18 +91,18 @@ const translations = {
     contact_addr: "地址",
   },
   en: {
-    title: "Lemei Packaging - Smart Packaging Solutions",
-    brand_name: "Lemei Pack",
-    brand_full: "Lemei Packaging",
+    title: "Lamipak Packaging - Smart Packaging Solutions",
+    brand_name: "Lamipak Pack",
+    brand_full: "Lamipak Packaging",
     nav_home: "Home",
     nav_trace: "Smart Trace",
     nav_custom: "Solutions",
     nav_about: "About Us",
     nav_contact: "Contact",
     about_tag: "WHO WE ARE",
-    about_title: "Lemei Packaging (Kunshan) Co., Ltd.",
+    about_title: "Lamipak Packaging (Kunshan) Co., Ltd.",
     about_intro:
-      "Founded in 1986 in Finland and part of the APP Group (the world's second-largest pulp and paper enterprise), Lemei Packaging is one of the top three companies globally with independent intellectual property rights for aseptic liquid paper packaging.",
+      "Founded in 1986 in Finland and part of the APP Group (the world's second-largest pulp and paper enterprise), Lamipak Packaging is one of the top three companies globally with independent intellectual property rights for aseptic liquid paper packaging.",
     about_history_title: "Development",
     about_history_desc:
       "In 2007, APP Group invested 600 million RMB to establish the Kunshan production base, covering 25,000 sqm with 500+ employees.",
@@ -126,11 +126,11 @@ const translations = {
     trace_title: "One Pack, One Code",
     trace_desc:
       "Giving every package a unique 'Digital ID' for full traceability, anti-counterfeiting, and consumer engagement.",
-    trace_input_hint: "Enter code (e.g., LEMEI2024) to trace",
+    trace_input_hint: "Enter code (e.g., LAMIPAK2024) to trace",
     trace_input_placeholder: "Enter the code on package",
     trace_btn_query: "Query",
     trace_loading: "Querying blockchain data...",
-    trace_success: "Verified: GENUINE LEMEI PRODUCT",
+    trace_success: "Verified: GENUINE LAMIPAK PRODUCT",
     trace_batch: "Batch",
     trace_type: "Spec",
     trace_type_val: "250ml Diamond Pack",
