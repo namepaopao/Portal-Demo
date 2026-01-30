@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="custom_page_title">客制化需求提交 - 乐美包装</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        lemei: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            200: '#bae0fd',
+                            300: '#7cc8fb',
+                            400: '#38acf7',
+                            500: '#0e91e9',
+                            600: '#0273c7',
+                            700: '#035ba1',
+                            800: '#074d85',
+                            900: '#0c416e',
+                            950: '#082949',
+                        },
+                        accent: '#5DA333',
+                        darkBg: '#020617',
+                        darkCard: '#0f172a',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Noto Sans SC', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .package-option {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .package-option.selected {
+            border-color: #0273c7;
+            background-color: #f0f7ff;
+        }
+        .dark .package-option.selected {
+            border-color: #38acf7;
+            background-color: rgba(14, 145, 233, 0.1);
+        }
+        .formula-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin: 0.25rem;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-900 bg-white dark:bg-darkBg dark:text-slate-300 transition-colors duration-500">
+
+    <!-- 导航栏 -->
+    <nav class="fixed w-full z-50 transition-all duration-500 border-b border-transparent bg-white/95 dark:bg-darkBg/95 backdrop-blur-lg shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center group cursor-pointer" onclick="window.location.href='index.html'">
+                    <div class="relative w-10 h-10 overflow-hidden rounded-xl bg-lemei-600 shadow-lg shadow-lemei-500/20 group-hover:rotate-12 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+                    </div>
+                    <span class="ml-3 font-bold text-2xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-lemei-700 to-lemei-500 dark:from-white dark:to-lemei-200" data-i18n="brand_name">乐美包装</span>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleLanguage()" class="control-btn px-3 py-2" id="langToggle">EN</button>
+                    <button onclick="toggleDarkMode()" class="control-btn px-3 py-2" id="themeToggle">
+                        <svg id="sunIcon" class="w-5 h-5 hidden dark:block text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        <svg id="moonIcon" class="w-5 h-5 block dark:hidden text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 118.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    </button>
+                    <a href="index.html" class="px-6 py-2.5 rounded-full border-2 border-lemei-600 text-lemei-600 dark:text-lemei-300 dark:border-lemei-500 font-semibold hover:bg-lemei-50 dark:hover:bg-lemei-900/30 transition-all" data-i18n="back_home">返回首页</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="pt-32 pb-20 min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- 页面标题 -->
+            <div class="text-center mb-16 fade-in">
+                <div class="inline-block px-4 py-1 rounded-lg bg-lemei-100 dark:bg-lemei-900/40 text-lemei-700 dark:text-lemei-300 font-bold text-xs tracking-widest uppercase mb-4" data-i18n="custom_tag">定制服务</div>
+                <h1 class="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-6" data-i18n="custom_title">提交您的客制化需求</h1>
+                <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" data-i18n="custom_subtitle">选择包材类型、配方需求，我们将为您免费提供专业小样（试用装）</p>
+            </div>
+
+            <!-- 步骤1: 选择包材类型 -->
+            <section class="mb-16 fade-in">
+                <div class="flex items-center mb-8">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-lemei-600 text-white font-bold mr-4">1</div>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white" data-i18n="step1_title">选择包材类型</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="packageOptions">
+                    <!-- 包材选项将通过JS动态生成 -->
+                </div>
+            </section>
+
+            <!-- 步骤2: 配方需求 -->
+            <section class="mb-16 fade-in">
+                <div class="flex items-center mb-8">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-lemei-600 text-white font-bold mr-4">2</div>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white" data-i18n="step2_title">配方需求</h2>
+                </div>
+
+                <div class="bg-white dark:bg-darkCard rounded-2xl p-8 border border-slate-200 dark:border-slate-800 shadow-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- 产品类型 -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-3" data-i18n="formula_product_type">产品类型</label>
+                            <select id="productType" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-lemei-500 outline-none transition">
+                                <option value="" data-i18n="select_placeholder">请选择</option>
+                                <option value="milk" data-i18n="product_milk">牛奶/乳制品</option>
+                                <option value="juice" data-i18n="product_juice">果汁/饮料</option>
+                                <option value="tea" data-i18n="product_tea">茶饮</option>
+                                <option value="water" data-i18n="product_water">饮用水</option>
+                                <option value="other" data-i18n="product_other">其他</option>
+                            </select>
+                        </div>
+
+                        <!-- 容量规格 -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-3" data-i18n="formula_capacity">容量规格 (ml)</label>
+                            <select id="capacity" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-lemei-500 outline-none transition">
+                                <option value="" data-i18n="select_placeholder">请选择</option>
+                                <option value="125">125ml</option>
+                                <option value="200">200ml</option>
+                                <option value="250">250ml</option>
+                                <option value="500">500ml</option>
+                                <option value="1000">1000ml</option>
+                                <option value="custom" data-i18n="capacity_custom">自定义</option>
+                            </select>
+                        </div>
+
+                        <!-- 保质期要求 -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-3" data-i18n="formula_shelf_life">保质期要求</label>
+                            <select id="shelfLife" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-lemei-500 outline-none transition">
+                                <option value="" data-i18n="select_placeholder">请选择</option>
+                                <option value="7" data-i18n="shelf_7days">7天（冷藏）</option>
+                                <option value="30" data-i18n="shelf_30days">30天（冷藏）</option>
+                                <option value="90" data-i18n="shelf_90days">90天（常温）</option>
+                                <option value="180" data-i18n="shelf_180days">180天（常温）</option>
+                                <option value="365" data-i18n="shelf_365days">365天（常温）</option>
+                            </select>
+                        </div>
+
+                        <!-- 特殊要求 -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-3" data-i18n="formula_special">特殊要求</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" value="organic" class="w-4 h-4 text-lemei-600 rounded focus:ring-lemei-500">
+                                    <span class="ml-2 text-sm text-slate-700 dark:text-slate-300" data-i18n="special_organic">有机认证</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" value="sugarfree" class="w-4 h-4 text-lemei-600 rounded focus:ring-lemei-500">
+                                    <span class="ml-2 text-sm text-slate-700 dark:text-slate-300" data-i18n="special_sugarfree">无糖</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" value="lowfat" class="w-4 h-4 text-lemei-600 rounded focus:ring-lemei-500">
+                                    <span class="ml-2 text-sm text-slate-700 dark:text-slate-300" data-i18n="special_lowfat">低脂</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 配方详细说明 -->
+                    <div class="mt-6">
+                        <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-3" data-i18n="formula_details">配方详细说明</label>
+                        <textarea id="formulaDetails" rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-lemei-500 outline-none transition resize-none" data-i18n-placeholder="formula_details_placeholder" placeholder="请详细描述您的配方需求，包括成分、口味、浓度等..."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 步骤3: 小样申请信息 -->
+            <section class="mb-16 fade-in">
+                <div class="flex items-center mb-8">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-lemei-600 text-white font-bold mr-4">3</div>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white" data-i18n="step3_title">小样申请信息</h2>
+                </div>
+
+                <div class="bg-white dark:bg-darkCard rounded-2xl p-8 border border-slate-200 dark:border-slate-800 shadow-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- 公司名称 -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-3" data-i18n="contact_company">公司名称 *</label>
+                            <input type="text" id="companyName" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-lemei-500 outline-none transition" data-i18n-placeholder="contact_company_placeholder" placeholder="请输入公司名称">
+                        </div>
+
+                        <!-- 联系人 -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-3" data-i18n="contact_name">联系人 *</label>
+                            <input type="text" id="contactName" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-lemei-500 outline-none transition" data-i18n-placeholder="contact_name_placeholder" placeholder="请输入联系人姓名">
+                        </div>
+
+                        <!-- 联系电话 -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-3" data-i18n="contact_phone">联系电话 *</label>
+                            <input type="tel" id="contactPhone" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-lemei-500 outline-none transition" data-i18n-placeholder="contact_phone_placeholder" placeholder="请输入联系电话">
+                        </div>
+
+                        <!-- 电子邮箱 -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-3" data-i18n="contact_email">电子邮箱 *</label>
+                            <input type="email" id="contactEmail" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-lemei-500 outline-none transition" data-i18n-placeholder="contact_email_placeholder" placeholder="请输入电子邮箱">
+                        </div>
+
+                        <!-- 收货地址 -->
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-3" data-i18n="contact_address">收货地址 *</label>
+                            <input type="text" id="shippingAddress" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-lemei-500 outline-none transition" data-i18n-placeholder="contact_address_placeholder" placeholder="请输入详细收货地址">
+                        </div>
+
+                        <!-- 小样数量 -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-3" data-i18n="sample_quantity">小样数量</label>
+                            <select id="sampleQuantity" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-lemei-500 outline-none transition">
+                                <option value="10">10个</option>
+                                <option value="20" selected>20个</option>
+                                <option value="50">50个</option>
+                                <option value="100">100个</option>
+                            </select>
+                        </div>
+
+                        <!-- 预计用量 -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-3" data-i18n="estimated_volume">预计年用量</label>
+                            <select id="estimatedVolume" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-lemei-500 outline-none transition">
+                                <option value="" data-i18n="select_placeholder">请选择</option>
+                                <option value="10k" data-i18n="volume_10k">1万以下</option>
+                                <option value="50k" data-i18n="volume_50k">1-5万</option>
+                                <option value="100k" data-i18n="volume_100k">5-10万</option>
+                                <option value="500k" data-i18n="volume_500k">10-50万</option>
+                                <option value="1m" data-i18n="volume_1m">50万以上</option>
+                            </select>
+                        </div>
+
+                        <!-- 备注 -->
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-3" data-i18n="contact_notes">备注</label>
+                            <textarea id="notes" rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-lemei-500 outline-none transition resize-none" data-i18n-placeholder="contact_notes_placeholder" placeholder="其他需要说明的信息..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 提交按钮 -->
+            <div class="text-center fade-in">
+                <button onclick="submitRequest()" class="px-12 py-4 bg-lemei-600 text-white rounded-full font-bold text-lg hover:bg-lemei-700 hover:shadow-xl hover:shadow-lemei-500/30 transition-all active:scale-95">
+                    <span data-i18n="submit_request">提交需求</span>
+                </button>
+                <p class="mt-4 text-sm text-slate-500 dark:text-slate-400" data-i18n="submit_note">提交后，我们的专家团队将在24小时内与您联系</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 dark:bg-darkBg border-t border-slate-100 dark:border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm text-slate-500 dark:text-slate-400">
+                &copy; 2026 <span data-i18n="brand_full">乐美包装 Lamipak Packaging</span>. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="customization-request.js"></script>
+</body>
+</html>
