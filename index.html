@@ -39,7 +39,7 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="src/css/main.css">
 </head>
 <body class="font-sans text-slate-900 bg-white dark:bg-darkBg dark:text-slate-300 transition-colors duration-500 overflow-x-hidden">
 
@@ -56,20 +56,21 @@
                     </div>
                     <span class="ml-3 font-bold text-2xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-lemei-700 to-lemei-500 dark:from-white dark:to-lemei-200" data-i18n="brand_name">乐美包装</span>
                 </div>
-                
+
                 <div class="hidden md:flex space-x-10 items-center">
                     <div class="flex space-x-8">
                         <a href="#home" class="nav-link" data-i18n="nav_home">首页</a>
+                        <a href="#about" class="nav-link" data-i18n="nav_about">关于我们</a>
                         <a href="#smart-trace" class="nav-link" data-i18n="nav_trace">一包一码</a>
                         <a href="#customization" class="nav-link" data-i18n="nav_custom">定制服务</a>
                     </div>
-                    
+
                     <div class="h-6 w-[1px] bg-slate-200 dark:bg-slate-800"></div>
 
                     <div class="flex items-center space-x-2">
                         <!-- 语言切换 -->
                         <button onclick="toggleLanguage()" class="control-btn" id="langToggle">EN</button>
-                        
+
                         <!-- 主题切换 -->
                         <button onclick="toggleDarkMode()" class="control-btn p-2.5" id="themeToggle">
                             <svg id="sunIcon" class="w-5 h-5 hidden dark:block text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
@@ -113,11 +114,58 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- 滚动提示 -->
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-400 animate-bounce cursor-pointer flex flex-col items-center">
             <span class="text-[10px] uppercase tracking-widest mb-2 font-bold opacity-60">Scroll</span>
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </div>
+    </section>
+
+    <!-- 关于我们 (About Us) -->
+    <section id="about" class="py-32 bg-white dark:bg-darkBg relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="flex flex-col lg:flex-row gap-16 items-start">
+                <div class="lg:w-1/2 fade-in">
+                    <div class="inline-block px-4 py-1 rounded-lg bg-lemei-100 dark:bg-lemei-900/40 text-lemei-700 dark:text-lemei-300 font-bold text-xs tracking-widest uppercase mb-4" data-i18n="about_tag">公司概况</div>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-8" data-i18n="about_title">乐美包装（昆山）有限公司</h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8" data-i18n="about_intro">
+                        1986年，乐美包装在芬兰成立，隶属于世界第二大的制浆造纸企业——APP集团...
+                    </p>
+                    <div class="p-8 bg-slate-50 dark:bg-slate-900/50 rounded-[2rem] border border-slate-100 dark:border-slate-800">
+                        <h4 class="font-bold text-slate-900 dark:text-white mb-3" data-i18n="about_history_title">发展历程</h4>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed" data-i18n="about_history_desc">
+                            2007年APP集团斥资6亿元建立乐美包装昆山生产基地...
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-8 w-full fade-in">
+                    <div class="advantage-card group">
+                        <div class="h-12 w-12 rounded-2xl bg-lemei-600 text-white flex items-center justify-center mb-5 group-hover:bg-lemei-500 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white mb-3 text-lg" data-i18n="about_facility_title">一流设施</h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="about_facility_desc">厂房符合GMP标准，配置了先进的空气净化系统...</p>
+                    </div>
+
+                    <div class="advantage-card group">
+                        <div class="h-12 w-12 rounded-2xl bg-accent text-white flex items-center justify-center mb-5 group-hover:opacity-80 transition-opacity">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white mb-3 text-lg" data-i18n="about_equipment_title">先进设备</h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="about_equipment_desc">配备世界一流全自动无菌包装生产设备...</p>
+                    </div>
+
+                    <div class="advantage-card group sm:col-span-2">
+                        <div class="h-12 w-12 rounded-2xl bg-lemei-700 text-white flex items-center justify-center mb-5">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white mb-3 text-lg" data-i18n="about_products_title">主营产品</h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="about_products_desc">利美无菌砖包、利美无菌枕包、纸杯等...</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -132,7 +180,7 @@
                     <div class="inline-block px-4 py-1 rounded-lg bg-lemei-50 dark:bg-lemei-900/30 text-lemei-600 dark:text-lemei-400 font-bold text-xs tracking-widest uppercase mb-4" data-i18n="trace_tag">核心技术</div>
                     <h2 class="text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-400 mb-6" data-i18n="trace_title">一包一码 · 数字化链接</h2>
                     <p class="text-lg text-slate-500 dark:text-slate-400 leading-relaxed max-w-lg mb-12" data-i18n="trace_desc">赋予每一个包装唯一的“数字身份证”，实现全链路追溯、防伪营销与消费者互动。</p>
-                    
+
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div class="advantage-card group">
                             <div class="h-12 w-12 rounded-2xl bg-lemei-600 text-white flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
@@ -155,7 +203,7 @@
                     <div class="relative p-1">
                         <!-- 发光边框装饰 -->
                         <div class="absolute -inset-1 bg-gradient-to-r from-lemei-500 via-accent to-lemei-600 rounded-[2rem] blur opacity-20 transition duration-1000 group-hover:opacity-40"></div>
-                        
+
                         <div class="relative bg-white dark:bg-darkCard p-10 rounded-[1.8rem] shadow-2xl border border-slate-100 dark:border-slate-800">
                             <div class="flex justify-center mb-10">
                                 <div class="relative group">
@@ -168,7 +216,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="text-center">
                                 <p class="text-xs text-slate-400 mb-4 font-medium tracking-wide uppercase" data-i18n="trace_input_hint">体验溯源（输入码：LEMEI2024）</p>
                                 <div class="flex gap-2 p-1 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800">
@@ -233,7 +281,7 @@
                 <!-- Card 3 -->
                 <div class="product-card fade-in group" style="animation-delay: 0.3s;">
                     <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1632515822602-53b4731969a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Creative Design" class="group-hover:scale-110 transition duration-700">
+                        <img src="https://images.unsplash.com/photo-1517404215738-15263e9f9178?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Creative Design" class="group-hover:scale-110 transition duration-700">
                         <div class="card-badge bg-purple-600" data-i18n="card_3_tag">个性化</div>
                     </div>
                     <div class="p-8">
@@ -299,13 +347,13 @@
                 <h4 class="text-slate-900 dark:text-white font-bold mb-6 text-sm uppercase tracking-widest" data-i18n="footer_col_3">联系方式</h4>
                 <div class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
                     <p><span class="text-slate-400 dark:text-slate-600 mr-2" data-i18n="contact_tel">电话</span>: 400-123-4567</p>
-                    <p><span class="text-slate-400 dark:text-slate-600 mr-2" data-i18n="contact_email">邮箱</span>: info@lemeipack.com</p>
-                    <p><span class="text-slate-400 dark:text-slate-600 mr-2" data-i18n="contact_addr">地址</span>: 中国上海市浦东新区科技园</p>
+                    <p><span class="text-slate-400 dark:text-slate-600 mr-2" data-i18n="contact_email">邮箱</span>: company@lamipak.biz</p>
+                    <p><span class="text-slate-400 dark:text-slate-600 mr-2" data-i18n="contact_addr">地址</span>: 中国江苏省苏州市昆山市新南西路369号</p>
                 </div>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 border-t border-slate-100 dark:border-slate-800 pt-10 text-xs text-slate-400 text-center font-medium">
-            &copy; 2026 <span data-i18n="brand_full">乐美包装 Lemei Packaging</span>. All rights reserved. 
+            &copy; 2026 <span data-i18n="brand_full">乐美包装 Lemei Packaging</span>. All rights reserved.
             <div class="mt-2 flex justify-center space-x-6">
                 <a href="#" class="hover:text-lemei-600 transition">Privacy Policy</a>
                 <a href="#" class="hover:text-lemei-600 transition">Terms of Service</a>
@@ -313,6 +361,6 @@
         </div>
     </footer>
 
-    <script src="js/app.js"></script>
+    <script src="src/js/app.js"></script>
 </body>
 </html>

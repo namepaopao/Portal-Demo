@@ -12,7 +12,24 @@ const translations = {
     nav_home: "首页",
     nav_trace: "一包一码",
     nav_custom: "定制服务",
+    nav_about: "关于我们",
     nav_contact: "联系我们",
+    about_tag: "公司概况",
+    about_title: "乐美包装（昆山）有限公司",
+    about_intro:
+      "1986年，乐美包装在芬兰成立，隶属于世界第二大的制浆造纸企业——APP集团，是全球三大拥有独立知识产权的纸质无菌液体包装的企业之一，独一无二的纸质圆柱形液体包装方案，使其在众多的液体包装中脱颖而出。",
+    about_history_title: "发展历程",
+    about_history_desc:
+      "2007年APP集团斥资6亿元建立乐美包装昆山生产基地，厂房占地面积约2.5万平方米，拥有员工500余人。",
+    about_facility_title: "一流设施",
+    about_facility_desc:
+      "厂房符合GMP标准，配置了先进的空气净化系统、防虫系统、无菌级消毒系统，获得了HACCP食品安全体系认证及QS认证。",
+    about_equipment_title: "先进设备",
+    about_equipment_desc:
+      "配备世界一流全自动无菌包装生产设备，年产能可达50亿包。",
+    about_products_title: "主营产品",
+    about_products_desc:
+      "利美无菌砖包、利美无菌枕包、利美罐产品、纸杯、淋膜纸、复合纸及利美罐灌装机等。",
     hero_title_1: "重新定义",
     hero_title_accent: "智能与可持续",
     hero_title_2: "的未来包装",
@@ -80,7 +97,24 @@ const translations = {
     nav_home: "Home",
     nav_trace: "Smart Trace",
     nav_custom: "Solutions",
+    nav_about: "About Us",
     nav_contact: "Contact",
+    about_tag: "WHO WE ARE",
+    about_title: "Lemei Packaging (Kunshan) Co., Ltd.",
+    about_intro:
+      "Founded in 1986 in Finland and part of the APP Group (the world's second-largest pulp and paper enterprise), Lemei Packaging is one of the top three companies globally with independent intellectual property rights for aseptic liquid paper packaging.",
+    about_history_title: "Development",
+    about_history_desc:
+      "In 2007, APP Group invested 600 million RMB to establish the Kunshan production base, covering 25,000 sqm with 500+ employees.",
+    about_facility_title: "Elite Facility",
+    about_facility_desc:
+      "GMP-standard plant with advanced air purification, pest control, and sterilization systems. Certified with HACCP and QS.",
+    about_equipment_title: "Advanced Tech",
+    about_equipment_desc:
+      "Equipped with world-class automated production lines, reaching an annual capacity of 5 billion packs.",
+    about_products_title: "Our Products",
+    about_products_desc:
+      "Aseptic bricks, pillows, cans, paper cups, coated paper, filling machines, and more.",
     hero_title_1: "Redefining",
     hero_title_accent: "Smart & Sustainable",
     hero_title_2: "Packaging Future",
