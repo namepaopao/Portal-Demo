@@ -167,6 +167,10 @@ function generateCode() {
   codeDisplay.classList.remove("opacity-0");
   codeDisplay.classList.add("animate-pulse");
 
+  // Update QR Code Visual
+  // Using a QR code API to generate a real QR code based on the unique string
+  qrPreview.style.backgroundImage = `url('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${uniqueCode}')`;
+
   // Simulate updating the visual
   const packageVisual = document.getElementById("package-visual");
   packageVisual.classList.add("scale-105");
