@@ -150,17 +150,47 @@ function toggleLanguage() {
   updateLanguage();
 }
 
+// Store generated code details
+let lastGeneratedCode = null;
+
 // 2. 模拟赋码生成
 function generateCode() {
   const productSelect = document.getElementById("product-select");
+  // Get text content of selected option for display
+  const productName = productSelect.options[productSelect.selectedIndex].text;
   const batchInput = document.getElementById("batch-input");
   const codeDisplay = document.getElementById("generated-code-display");
   const qrPreview = document.getElementById("qr-preview");
 
-  // Simple random code generation
+  // Generate random data
   const randomId = Math.random().toString(36).substring(2, 10).toUpperCase();
   const batch = batchInput.value || "BATCH001";
-  const uniqueCode = `LAMI-${batch}-${randomId}`; // e.g., LAMI-BATCH001-X7Z9A2
+  const uniqueCode = `LAMI-${batch}-${randomId}`;
+
+  // Store data for scanning
+  const now = new Date();
+  const expDate = new Date(now);
+  expDate.setMonth(now.getMonth() + 6); // Assume 6 months shelf life
+
+  lastGeneratedCode = {
+    code: uniqueCode,
+    product: productName,
+    batch: batch,
+    prodDate: now
+      .toLocaleDateString("zh-CN", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      })
+      .replace(/\//g, "."),
+    expDate: expDate
+      .toLocaleDateString("zh-CN", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      })
+      .replace(/\//g, "."),
+  };
 
   // Update Display
   codeDisplay.textContent = uniqueCode;
@@ -168,7 +198,6 @@ function generateCode() {
   codeDisplay.classList.add("animate-pulse");
 
   // Update QR Code Visual
-  // Using a QR code API to generate a real QR code based on the unique string
   qrPreview.style.backgroundImage = `url('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${uniqueCode}')`;
 
   // Simulate updating the visual
@@ -194,6 +223,18 @@ function simulateScan() {
   setTimeout(() => {
     resultScreen.style.opacity = "1";
     resultScreen.style.pointerEvents = "auto";
+
+    // Update result with generated code if available, in logic and text
+    if (lastGeneratedCode) {
+      document.getElementById("result-product-val").textContent =
+        lastGeneratedCode.product;
+      document.getElementById("result-batch-val").textContent =
+        lastGeneratedCode.batch;
+      document.getElementById("result-date-prod-val").textContent =
+        lastGeneratedCode.prodDate;
+      document.getElementById("result-date-exp-val").textContent =
+        lastGeneratedCode.expDate;
+    }
 
     // 设置当前时间
     const now = new Date();
