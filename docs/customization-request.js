@@ -1,7 +1,6 @@
 // --- 核心配置与状态 ---
 const config = {
   currentLang: localStorage.getItem("lamipak-lang") || "zh",
-  isDark: localStorage.getItem("lamipak-theme") === "dark",
   selectedPackage: null,
 };
 
@@ -310,21 +309,6 @@ function toggleLanguage() {
   updateLanguage();
 }
 
-// 4. 暗色模式切换
-function applyTheme() {
-  if (config.isDark) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
-  localStorage.setItem("lamipak-theme", config.isDark ? "dark" : "light");
-}
-
-function toggleDarkMode() {
-  config.isDark = !config.isDark;
-  applyTheme();
-}
-
 // 5. 表单验证
 function validateForm() {
   const lang = config.currentLang;
@@ -484,7 +468,6 @@ function handleUrlParams() {
 document.addEventListener("DOMContentLoaded", () => {
   handleUrlParams(); // 先处理URL参数
   updateLanguage();
-  applyTheme();
   renderPackageOptions();
   initAnimations();
 });

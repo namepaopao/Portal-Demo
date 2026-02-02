@@ -1,7 +1,6 @@
 // --- 核心配置与状态 ---
 const config = {
   currentLang: localStorage.getItem("lamipak-lang") || "zh",
-  isDark: localStorage.getItem("lamipak-theme") === "dark",
 };
 
 const translations = {
@@ -116,21 +115,6 @@ function toggleLanguage() {
   updateLanguage();
 }
 
-// 2. 暗色模式切换
-function applyTheme() {
-  if (config.isDark) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
-  localStorage.setItem("lamipak-theme", config.isDark ? "dark" : "light");
-}
-
-function toggleDarkMode() {
-  config.isDark = !config.isDark;
-  applyTheme();
-}
-
 // 3. 模拟扫码演示
 function simulateScan() {
   const scanScreen = document.getElementById("scan-screen");
@@ -190,6 +174,5 @@ const initAnimations = () => {
 // --- 初始化 ---
 document.addEventListener("DOMContentLoaded", () => {
   updateLanguage();
-  applyTheme();
   initAnimations();
 });

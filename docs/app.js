@@ -1,7 +1,6 @@
 // --- 核心配置与状态 ---
 const config = {
   currentLang: localStorage.getItem("lamipak-lang") || "zh",
-  isDark: localStorage.getItem("lamipak-theme") === "dark",
 };
 
 console.log("App Initialized. Config:", config);
@@ -223,22 +222,6 @@ function toggleLanguage() {
   updateLanguage();
 }
 
-// 2. 暗色模式切换
-function applyTheme() {
-  console.log("Apply Theme:", config.isDark ? "dark" : "light");
-  if (config.isDark) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
-  localStorage.setItem("lamipak-theme", config.isDark ? "dark" : "light");
-}
-
-function toggleDarkMode() {
-  config.isDark = !config.isDark;
-  applyTheme();
-}
-
 // 3. 溯源查询逻辑
 function checkCode() {
   const input = document.getElementById("traceInput").value;
@@ -297,7 +280,6 @@ const initAnimations = () => {
 // 2. 页面载入时执行
 document.addEventListener("DOMContentLoaded", () => {
   updateLanguage();
-  applyTheme();
   initAnimations();
 
   const navbar = document.getElementById("navbar");
