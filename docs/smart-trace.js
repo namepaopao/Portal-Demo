@@ -29,7 +29,17 @@ const translations = {
       "每一次扫码都会转化为有价值的数据资产。通过我们的数据中台，您可以实时查看扫码热力图、消费者画像及库存动态。",
     btn_learn_platform: "了解数据平台",
 
-    // Added translations
+    // Code Generation Section
+    gen_title: "生产赋码",
+    gen_desc:
+      "在生产环节为每一个产品赋予定制的唯一身份标识（QR码），确保一包一码。",
+    gen_label_product: "选择产品线",
+    gen_label_batch: "生产批次",
+    gen_btn_generate: "生成一包一码",
+    gen_code_label: "当前生成码值",
+    gen_product_milk_250: "乐美无菌砖包 250ml",
+    gen_product_milk_1000: "乐美无菌砖包 1000ml",
+
     scan_screen_text: "扫描中",
     btn_simulate_scan: "点击模拟扫码",
     result_title: "正品验证通过",
@@ -70,6 +80,17 @@ const translations = {
       "Every scan turns into a valuable data asset. View scan heatmaps, consumer profiles, and inventory dynamics in real-time through our data platform.",
     btn_learn_platform: "Learn Data Platform",
 
+    // Code Generation Section
+    gen_title: "Trace Code Generation",
+    gen_desc:
+      "Assign a unique custom identity (QR Code) to each package during production.",
+    gen_label_product: "Select Product Line",
+    gen_label_batch: "Batch Number",
+    gen_btn_generate: "Generate Unique Code",
+    gen_code_label: "Generated Code Value",
+    gen_product_milk_250: "Lamipak Aseptic 250ml",
+    gen_product_milk_1000: "Lamipak Aseptic 1000ml",
+
     // Added translations
     scan_screen_text: "Scanning",
     btn_simulate_scan: "Simulate Scan",
@@ -98,7 +119,21 @@ function updateLanguage() {
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
     if (dict[key]) {
-      el.innerHTML = dict[key];
+      // Handle input placeholders
+      if (
+        el.tagName === "INPUT" ||
+        el.tagName === "TEXTAREA" ||
+        el.tagName === "SELECT"
+      ) {
+        // For inputs, we might want to update label or placeholder,
+        // but here we are using data-i18n on the LABEL or Header usually.
+        // If we want to change options in select:
+        if (el.tagName === "OPTION") {
+          el.innerText = dict[key];
+        }
+      } else {
+        el.innerHTML = dict[key];
+      }
     }
   });
 
@@ -113,6 +148,33 @@ function updateLanguage() {
 function toggleLanguage() {
   config.currentLang = config.currentLang === "zh" ? "en" : "zh";
   updateLanguage();
+}
+
+// 2. 模拟赋码生成
+function generateCode() {
+  const productSelect = document.getElementById("product-select");
+  const batchInput = document.getElementById("batch-input");
+  const codeDisplay = document.getElementById("generated-code-display");
+  const qrPreview = document.getElementById("qr-preview");
+
+  // Simple random code generation
+  const randomId = Math.random().toString(36).substring(2, 10).toUpperCase();
+  const batch = batchInput.value || "BATCH001";
+  const uniqueCode = `LAMI-${batch}-${randomId}`; // e.g., LAMI-BATCH001-X7Z9A2
+
+  // Update Display
+  codeDisplay.textContent = uniqueCode;
+  codeDisplay.classList.remove("opacity-0");
+  codeDisplay.classList.add("animate-pulse");
+
+  // Simulate updating the visual
+  const packageVisual = document.getElementById("package-visual");
+  packageVisual.classList.add("scale-105");
+  setTimeout(() => packageVisual.classList.remove("scale-105"), 200);
+
+  setTimeout(() => {
+    codeDisplay.classList.remove("animate-pulse");
+  }, 500);
 }
 
 // 3. 模拟扫码演示
