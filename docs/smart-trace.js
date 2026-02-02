@@ -42,6 +42,9 @@ const translations = {
 
     scan_screen_text: "扫描中",
     btn_simulate_scan: "点击模拟扫码",
+    input_trace_placeholder: "输入溯源码",
+    btn_verify_code: "立即查询",
+    error_code_not_found: "未找到该码信息",
     result_title: "正品验证通过",
     result_time_label: "查询时间:",
     result_product: "产品名称",
@@ -49,7 +52,7 @@ const translations = {
     result_batch: "生产批次",
     result_date_prod: "生产日期",
     result_date_exp: "保质期至",
-    btn_rescan: "重新扫描",
+    btn_rescan: "继续查询",
     label_enterprise_view: "企业端视图",
     stat_geo: "扫码地理位置分布",
     stat_time: "扫码时间段分析",
@@ -94,6 +97,9 @@ const translations = {
     // Added translations
     scan_screen_text: "Scanning",
     btn_simulate_scan: "Simulate Scan",
+    input_trace_placeholder: "Enter Trace Code",
+    btn_verify_code: "Verify Now",
+    error_code_not_found: "Code Not Found",
     result_title: "Authenticity Verified",
     result_time_label: "Query Time:",
     result_product: "Product Name",
@@ -101,7 +107,7 @@ const translations = {
     result_batch: "Batch Number",
     result_date_prod: "Production Date",
     result_date_exp: "Expiration Date",
-    btn_rescan: "Scan Again",
+    btn_rescan: "Verify Another",
     label_enterprise_view: "Enterprise View",
     stat_geo: "Scan Geo-Distribution",
     stat_time: "Scan Time Analysis",
@@ -120,17 +126,12 @@ function updateLanguage() {
     const key = el.getAttribute("data-i18n");
     if (dict[key]) {
       // Handle input placeholders
-      if (
-        el.tagName === "INPUT" ||
-        el.tagName === "TEXTAREA" ||
-        el.tagName === "SELECT"
-      ) {
-        // For inputs, we might want to update label or placeholder,
-        // but here we are using data-i18n on the LABEL or Header usually.
-        // If we want to change options in select:
-        if (el.tagName === "OPTION") {
-          el.innerText = dict[key];
-        }
+      if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+        el.placeholder = dict[key];
+      } else if (el.tagName === "SELECT") {
+        // select handling
+      } else if (el.tagName === "OPTION") {
+        el.innerText = dict[key];
       } else {
         el.innerHTML = dict[key];
       }
@@ -200,6 +201,9 @@ function generateCode() {
   // Update QR Code Visual
   qrPreview.style.backgroundImage = `url('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${uniqueCode}')`;
 
+  // Provide visual cue that code is copied/ready for the input below
+  document.getElementById("trace-code-input").value = uniqueCode;
+
   // Simulate updating the visual
   const packageVisual = document.getElementById("package-visual");
   packageVisual.classList.add("scale-105");
@@ -210,10 +214,18 @@ function generateCode() {
   }, 500);
 }
 
-// 3. 模拟扫码演示
-function simulateScan() {
+// 3. 手动验证 (原模拟扫码)
+function verifyTraceCode() {
+  const inputEl = document.getElementById("trace-code-input");
   const scanScreen = document.getElementById("scan-screen");
   const resultScreen = document.getElementById("result-screen");
+  const inputCode = inputEl.value.trim();
+
+  if (!inputCode) {
+    inputEl.classList.add("ring-2", "ring-red-500");
+    setTimeout(() => inputEl.classList.remove("ring-2", "ring-red-500"), 1000);
+    return;
+  }
 
   // 隐藏扫描界面
   scanScreen.style.opacity = "0";
@@ -224,17 +236,36 @@ function simulateScan() {
     resultScreen.style.opacity = "1";
     resultScreen.style.pointerEvents = "auto";
 
-    // Update result with generated code if available, in logic and text
-    if (lastGeneratedCode) {
-      document.getElementById("result-product-val").textContent =
-        lastGeneratedCode.product;
-      document.getElementById("result-batch-val").textContent =
-        lastGeneratedCode.batch;
-      document.getElementById("result-date-prod-val").textContent =
-        lastGeneratedCode.prodDate;
-      document.getElementById("result-date-exp-val").textContent =
-        lastGeneratedCode.expDate;
+    // check match
+    let dataToShow = {
+      product: translations[config.currentLang].result_product_val,
+      batch: "BATCH-DEFAULT",
+      prodDate: "2026.01.01",
+      expDate: "2026.07.01",
+    };
+
+    if (lastGeneratedCode && lastGeneratedCode.code === inputCode) {
+      dataToShow = lastGeneratedCode;
+    } else if (inputCode.startsWith("LAMI-")) {
+      // Parse simulated legacy code or random input that matches pattern
+      // fallback
+      dataToShow.batch = inputCode.split("-")[1] || "UNKNOWN";
+      dataToShow.prodDate = new Date()
+        .toLocaleDateString("zh-CN", {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+        })
+        .replace(/\//g, ".");
     }
+
+    document.getElementById("result-product-val").textContent =
+      dataToShow.product;
+    document.getElementById("result-batch-val").textContent = dataToShow.batch;
+    document.getElementById("result-date-prod-val").textContent =
+      dataToShow.prodDate;
+    document.getElementById("result-date-exp-val").textContent =
+      dataToShow.expDate;
 
     // 设置当前时间
     const now = new Date();
@@ -247,10 +278,14 @@ function simulateScan() {
 function resetScan() {
   const scanScreen = document.getElementById("scan-screen");
   const resultScreen = document.getElementById("result-screen");
+  const inputEl = document.getElementById("trace-code-input");
 
   // 隐藏结果界面
   resultScreen.style.opacity = "0";
   resultScreen.style.pointerEvents = "none";
+
+  // Clear input
+  inputEl.value = "";
 
   // 显示扫描界面
   setTimeout(() => {

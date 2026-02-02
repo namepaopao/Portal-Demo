@@ -226,10 +226,14 @@
                             <!-- 模拟扫描界面 -->
                             <div id="scan-screen" class="absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-500">
                                 <div class="w-48 h-48 relative border-2 border-lemei-400/30 rounded-2xl flex items-center justify-center mb-4 overflow-hidden">
-                                    <div class="scan-line"></div>
-                                    <span class="text-xs text-lemei-500 font-bold tracking-widest uppercase relative z-20" data-i18n="scan_screen_text">Scanning</span>
-                                </div>
-                                <button onclick="simulateScan()" class="mt-8 px-6 py-2 bg-lemei-600 text-white rounded-full text-sm font-bold shadow-lg transform active:scale-95 transition-all" data-i18n="btn_simulate_scan">点击模拟扫码</button>
+                                     <div class="scan-line"></div>
+                                     <span class="text-xs text-lemei-500 font-bold tracking-widest uppercase relative z-20" data-i18n="scan_screen_text">Scanning</span>
+                                 </div>
+                                 
+                                 <div class="mt-4 w-full px-4 relative z-20">
+                                     <input type="text" id="trace-code-input" placeholder="输入溯源码 (e.g. LAMI-...)" class="w-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg px-3 py-2 text-xs mb-3 text-center font-mono focus:ring-2 focus:ring-lemei-500 outline-none" data-i18n="input_trace_placeholder">
+                                     <button onclick="verifyTraceCode()" class="w-full px-6 py-2 bg-lemei-600 text-white rounded-full text-xs font-bold shadow-lg transform active:scale-95 transition-all" data-i18n="btn_verify_code">立即查询</button>
+                                 </div>
                             </div>
 
                             <!-- 模拟结果界面 -->
