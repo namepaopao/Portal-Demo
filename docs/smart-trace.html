@@ -145,38 +145,11 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <!-- Refactored to match consistency with the Scan Demo below -->
+            <div class="bg-white dark:bg-darkCard rounded-[2.5rem] shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row fade-in">
 
-                <!-- Left: Control Panel -->
-                <div class="bg-slate-50 dark:bg-darkCard p-8 rounded-[2rem] shadow-xl border border-slate-200 dark:border-slate-800 fade-in">
-                    <div class="space-y-6">
-                        <div>
-                            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2" data-i18n="gen_label_product">选择产品线</label>
-                            <div class="relative">
-                                <select id="product-select" class="w-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-xl px-4 py-3 text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-lemei-500 appearance-none">
-                                    <option value="milk250" data-i18n="gen_product_milk_250">乐美无菌砖包 250ml</option>
-                                    <option value="milk1000" data-i18n="gen_product_milk_1000">乐美无菌砖包 1000ml</option>
-                                </select>
-                                <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2" data-i18n="gen_label_batch">生产批次</label>
-                            <input type="text" id="batch-input" value="BATCH-2026-A1" class="w-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-xl px-4 py-3 text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-lemei-500 font-mono">
-                        </div>
-
-                        <button onclick="generateCode()" class="w-full bg-lemei-600 hover:bg-lemei-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all active:scale-[0.98] flex items-center justify-center gap-2 group">
-                            <svg class="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
-                            <span data-i18n="gen_btn_generate">生成一包一码</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Right: Visual Preview -->
-                <div class="relative flex justify-center fade-in" style="animation-delay: 0.2s">
+                <!-- Left: Visual Preview -->
+                <div class="md:w-1/2 bg-slate-50 dark:bg-slate-800 p-12 flex items-center justify-center relative overflow-hidden">
                     <!-- Milk Carton Visual -->
                     <div id="package-visual" class="relative w-64 transition-transform duration-300">
                     <!-- Carton Top -->
@@ -206,6 +179,34 @@
                             </svg>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Right: Control Panel -->
+                <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                    <div class="space-y-8">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2" data-i18n="gen_label_product">选择产品线</label>
+                            <div class="relative">
+                                <select id="product-select" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-lemei-500 appearance-none transition-shadow">
+                                    <option value="milk250" data-i18n="gen_product_milk_250">乐美无菌砖包 250ml</option>
+                                    <option value="milk1000" data-i18n="gen_product_milk_1000">乐美无菌砖包 1000ml</option>
+                                </select>
+                                <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2" data-i18n="gen_label_batch">生产批次</label>
+                            <input type="text" id="batch-input" value="BATCH-2026-A1" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-lemei-500 font-mono transition-shadow">
+                        </div>
+
+                        <button onclick="generateCode()" class="w-full bg-lemei-600 hover:bg-lemei-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all active:scale-[0.98] flex items-center justify-center gap-2 group">
+                            <svg class="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                            <span data-i18n="gen_btn_generate">生成一包一码</span>
+                        </button>
                     </div>
                 </div>
 
