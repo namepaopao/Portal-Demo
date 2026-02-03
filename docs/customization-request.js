@@ -544,7 +544,9 @@ function renderHistory() {
   const dict = translations[lang];
 
   if (history.length === 0) {
-    historySection.classList.add("hidden");
+    historySection.classList.remove("hidden");
+    historyList.innerHTML = "";
+    noHistory.classList.remove("hidden");
     return;
   }
 
