@@ -134,7 +134,16 @@ const translations = {
     submit_error_msg: "请检查您的网络连接后重试。",
     validation_error: "请填写所有必填项",
     validation_package: "请选择包材类型",
-  },
+
+    // 历史记录
+    history_title: "提交历史",
+    history_date: "提交时间",
+    history_package: "包材类型",
+    history_product: "产品类型",
+    history_status: "状态",
+    history_empty: "暂无提交记录",
+    status_pending: "处理中",
+    status_completed: "已完成",
   en: {
     custom_page_title: "Customization Request - Lamipak",
     brand_name: "Lamipak",
@@ -213,6 +222,16 @@ const translations = {
     submit_error_msg: "Please check your network connection and try again.",
     validation_error: "Please fill in all required fields",
     validation_package: "Please select a package type",
+
+    // History
+    history_title: "Submission History",
+    history_date: "Date",
+    history_package: "Package Type",
+    history_product: "Product Type",
+    history_status: "Status",
+    history_empty: "No submission history",
+    status_pending: "Processing",
+    status_completed: "Completed",
   },
 };
 
@@ -388,6 +407,27 @@ function submitRequest() {
 
   console.log("提交的表单数据:", formData);
 
+  // Save to localStorage
+  const history = JSON.parse(localStorage.getItem("lamipak-custom-requests") || "[]");
+  // Add status field
+  formData.status = "pending";
+  // Add simplified package/product names for display
+  const pkg = packageTypes.find(p => p.id === formData.packageType);
+  formData.packageTypeName = lang === "zh" ? pkg.nameZh : pkg.nameEn;
+  
+  // Add display text for product type (simplified logic, usually would map keys)
+  const productTypeMap = {
+     'milk': lang === 'zh' ? '牛奶/乳制品' : 'Milk/Dairy',
+     'juice': lang === 'zh' ? '果汁/饮料' : 'Juice/Beverage',
+     'tea': lang === 'zh' ? '茶饮' : 'Tea',
+     'water': lang === 'zh' ? '饮用水' : 'Water',
+     'other': lang === 'zh' ? '其他' : 'Other'
+  };
+  formData.productTypeName = productTypeMap[formData.productType] || formData.productType;
+
+  history.unshift(formData); // Add to beginning
+  localStorage.setItem("lamipak-custom-requests", JSON.stringify(history));
+
   // 模拟提交（实际项目中应该发送到后端API）
   // 这里使用 setTimeout 模拟异步请求
   const submitButton = event.target;
@@ -399,7 +439,27 @@ function submitRequest() {
     alert(`${dict.submit_success}\n\n${dict.submit_success_msg}`);
 
     // 重置表单
-    window.location.href = "index.html";
+    // window.location.href = "index.html"; 
+    document.getElementById("companyName").value = "";
+    document.getElementById("contactName").value = "";
+    document.getElementById("contactPhone").value = "";
+    document.getElementById("contactEmail").value = "";
+    document.getElementById("shippingAddress").value = "";
+    document.getElementById("notes").value = "";
+    document.getElementById("formulaDetails").value = "";
+    
+    // Enable button
+    submitButton.disabled = false;
+    submitButton.innerHTML = dict.submit_request;
+
+    // Render history and scroll to it
+    renderHistory();
+    const historySection = document.getElementById("historySection");
+    if(historySection) {
+        historySection.classList.remove("hidden");
+        historySection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
   }, 1500);
 
   // 实际使用时的代码示例:
@@ -464,10 +524,75 @@ function handleUrlParams() {
   }
 }
 
+// 9. 渲染历史记录
+function renderHistory() {
+  const historySection = document.getElementById("historySection");
+  const historyList = document.getElementById("historyList");
+  const noHistory = document.getElementById("noHistory");
+  
+  if (!historySection || !historyList) return;
+
+  const history = JSON.parse(localStorage.getItem("lamipak-custom-requests") || "[]");
+  const lang = config.currentLang;
+  const dict = translations[lang];
+
+  if (history.length === 0) {
+      historySection.classList.add("hidden"); // Optionally keep it hidden if empty, or show "No history"
+      // If we want to show the section but with "No history" message:
+      // historySection.classList.remove("hidden");
+      // historyList.innerHTML = "";
+      // noHistory.classList.remove("hidden");
+      return; 
+  }
+
+  historySection.classList.remove("hidden");
+  noHistory.classList.add("hidden");
+  
+  historyList.innerHTML = history.map(item => {
+      // Format date
+      const date = new Date(item.timestamp).toLocaleString(lang === 'zh' ? 'zh-CN' : 'en-US');
+      
+      // Get display names based on current language (stored names might be in mixed langs if switched, 
+      // ideally we store IDs and resolve names here, but for now we used the stored names or resolve again)
+      
+      // Re-resolve package name to match current lang
+      const pkg = packageTypes.find(p => p.id === item.packageType);
+      const pkgName = pkg ? (lang === "zh" ? pkg.nameZh : pkg.nameEn) : item.packageTypeName;
+
+      // Re-resolve product name
+      const productTypeMap = {
+        'milk': lang === 'zh' ? '牛奶/乳制品' : 'Milk/Dairy',
+        'juice': lang === 'zh' ? '果汁/饮料' : 'Juice/Beverage',
+        'tea': lang === 'zh' ? '茶饮' : 'Tea',
+        'water': lang === 'zh' ? '饮用水' : 'Water',
+        'other': lang === 'zh' ? '其他' : 'Other'
+     };
+     const productName = productTypeMap[item.productType] || item.productTypeName;
+
+     // Status text
+     const statusText = item.status === 'pending' ? dict.status_pending : dict.status_completed;
+     const statusColor = item.status === 'pending' ? 'text-orange-500 bg-orange-100 dark:bg-orange-900/30' : 'text-green-500 bg-green-100 dark:bg-green-900/30';
+
+      return `
+      <tr class="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
+          <td class="p-4 text-sm text-slate-600 dark:text-slate-400">${date}</td>
+          <td class="p-4 font-bold text-slate-800 dark:text-slate-200">${pkgName}</td>
+          <td class="p-4 text-sm text-slate-600 dark:text-slate-400">${productName}</td>
+          <td class="p-4">
+              <span class="inline-block px-2 py-1 rounded-full text-xs font-bold ${statusColor}">
+                  ${statusText}
+              </span>
+          </td>
+      </tr>
+      `;
+  }).join("");
+}
+
 // --- 初始化 ---
 document.addEventListener("DOMContentLoaded", () => {
   handleUrlParams(); // 先处理URL参数
   updateLanguage();
   renderPackageOptions();
+  renderHistory();
   initAnimations();
 });
