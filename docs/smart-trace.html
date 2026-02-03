@@ -141,7 +141,7 @@
                 <h2 class="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6" data-i18n="gen_title">生产赋码</h2>
                 <div class="w-16 h-1 bg-lemei-500 mx-auto rounded-full mb-6"></div>
                 <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" data-i18n="gen_desc">
-                    在生产环节为每一个产品赋予定制的唯一身份标识（QR码），确保一包一码。
+                    在生产环节为每一个产品赋予定制的唯一身份标识（条形码），确保一包一码。
                 </p>
             </div>
 
@@ -164,7 +164,7 @@
 
                         <!-- Dynamic Code Area -->
                         <div class="bg-white p-2 rounded-lg shadow-inner border-2 border-dashed border-slate-300 dark:border-slate-600">
-                            <div id="qr-preview" class="w-24 h-24 bg-[url('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=LamipakDemo')] bg-cover"></div>
+                            <div id="barcode-preview" class="w-40 h-16 bg-[url('https://bwipjs-api.metafloor.com/?bcid=code128&text=LamipakDemo')] bg-contain bg-center bg-no-repeat"></div>
                         </div>
 
                         <div class="mt-4 text-center relative z-20">

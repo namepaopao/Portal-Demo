@@ -41,7 +41,7 @@ const translations = {
     trace_tag: "核心技术",
     trace_title: "一包一码 · 数字化链接",
     trace_desc:
-      "赋予每一个包装唯一的“数字身份证”，实现全链路追溯、防伪营销与消费者互动。",
+      "赋予每一个包装唯一的“数字身份证”，实现全链路追溯、防伪营销与消费者互动（支持条形码识别）。",
     btn_view_details: "查看详情",
     trace_input_hint: "输入模拟码（如：LAMIPAK2024）体验溯源",
     trace_input_placeholder: "请输入包装上的代码",
@@ -127,7 +127,7 @@ const translations = {
     trace_tag: "CORE TECHNOLOGY",
     trace_title: "One Pack, One Code",
     trace_desc:
-      "Giving every package a unique 'Digital ID' for full traceability, anti-counterfeiting, and consumer engagement.",
+      "Giving every package a unique 'Digital ID' for full traceability, anti-counterfeiting, and consumer engagement (Barcode supported).",
     btn_view_details: "View Details",
     trace_input_hint: "Enter code (e.g., LAMIPAK2024) to trace",
     trace_input_placeholder: "Enter the code on package",

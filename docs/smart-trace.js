@@ -161,7 +161,7 @@ function generateCode() {
   const productName = productSelect.options[productSelect.selectedIndex].text;
   const batchInput = document.getElementById("batch-input");
   const codeDisplay = document.getElementById("generated-code-display");
-  const qrPreview = document.getElementById("qr-preview");
+  const barcodePreview = document.getElementById("barcode-preview");
 
   // Generate random data
   const randomId = Math.random().toString(36).substring(2, 10).toUpperCase();
@@ -198,8 +198,8 @@ function generateCode() {
   codeDisplay.classList.remove("opacity-0");
   codeDisplay.classList.add("animate-pulse");
 
-  // Update QR Code Visual
-  qrPreview.style.backgroundImage = `url('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${uniqueCode}')`;
+  // Update Barcode Visual
+  barcodePreview.style.backgroundImage = `url('https://bwipjs-api.metafloor.com/?bcid=code128&text=${uniqueCode}')`;
 
   // Provide visual cue that code is copied/ready for the input below
   document.getElementById("trace-code-input").value = uniqueCode;
