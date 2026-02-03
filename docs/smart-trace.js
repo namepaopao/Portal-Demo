@@ -215,16 +215,21 @@ function generateCode() {
 }
 
 // 3. 手动验证 (原模拟扫码)
-function verifyTraceCode() {
+function verifyTraceCode(externalCode) {
   const inputEl = document.getElementById("trace-code-input");
   const scanScreen = document.getElementById("scan-screen");
   const resultScreen = document.getElementById("result-screen");
-  const inputCode = inputEl.value.trim();
+  const inputCode = (externalCode || inputEl.value).trim();
 
   if (!inputCode) {
     inputEl.classList.add("ring-2", "ring-red-500");
     setTimeout(() => inputEl.classList.remove("ring-2", "ring-red-500"), 1000);
     return;
+  }
+
+  // 如果是外部传入的代码，同步更新输入框
+  if (externalCode) {
+    inputEl.value = externalCode;
   }
 
   // 隐藏扫描界面
@@ -246,17 +251,16 @@ function verifyTraceCode() {
 
     if (lastGeneratedCode && lastGeneratedCode.code === inputCode) {
       dataToShow = lastGeneratedCode;
-    } else if (inputCode.startsWith("LAMI-")) {
-      // Parse simulated legacy code or random input that matches pattern
-      // fallback
-      dataToShow.batch = inputCode.split("-")[1] || "UNKNOWN";
-      dataToShow.prodDate = new Date()
-        .toLocaleDateString("zh-CN", {
-          year: "numeric",
-          month: "2-digit",
-          day: "2-digit",
-        })
-        .replace(/\//g, ".");
+    } else {
+      // 解析模拟码或随机输入
+      // 尝试从码中提取批次 (如果是 LAMI-BATCH-XXX 格式)
+      const parts = inputCode.split("-");
+      if (parts.length >= 2) {
+        dataToShow.batch = parts[1];
+      }
+
+      dataToShow.prodDate = "2026.02.03";
+      dataToShow.expDate = "2026.08.03";
     }
 
     document.getElementById("result-product-val").textContent =
@@ -273,6 +277,22 @@ function verifyTraceCode() {
       config.currentLang === "zh" ? "zh-CN" : "en-US",
     );
   }, 500);
+}
+
+// 4. 处理 URL 参数
+function handleUrlParams() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const code = urlParams.get("code");
+  if (code) {
+    // 等待动画加载完成或页面准备好
+    setTimeout(() => {
+      const demoSection = document.getElementById("demo-section");
+      if (demoSection) {
+        demoSection.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+      verifyTraceCode(code);
+    }, 800);
+  }
 }
 
 function resetScan() {
@@ -317,4 +337,5 @@ const initAnimations = () => {
 document.addEventListener("DOMContentLoaded", () => {
   updateLanguage();
   initAnimations();
+  handleUrlParams();
 });

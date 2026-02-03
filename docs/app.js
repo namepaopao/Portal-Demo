@@ -224,30 +224,12 @@ function toggleLanguage() {
 
 // 3. 溯源查询逻辑
 function checkCode() {
-  const input = document.getElementById("traceInput").value;
-  const resultBox = document.getElementById("traceResult");
+  const input = document.getElementById("traceInput").value.trim();
   const lang = config.currentLang;
-  const dict = translations[lang];
 
   if (input.length > 0) {
-    resultBox.classList.remove("hidden");
-    resultBox.innerHTML = dict.trace_loading;
-
-    setTimeout(() => {
-      resultBox.innerHTML = `
-                <div class="flex items-start text-left">
-                    <div class="text-green-500 mr-3 mt-1">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <div>
-                        <p class="font-bold text-gray-800 dark:text-white text-base">${dict.trace_success}</p>
-                        <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">Code: ${input}</p>
-                        <p class="text-xs text-gray-600 dark:text-gray-400">${dict.trace_batch}: 20231025-A</p>
-                        <p class="text-xs text-gray-600 dark:text-gray-400">${dict.trace_type}: ${dict.trace_type_val}</p>
-                    </div>
-                </div>
-            `;
-    }, 800);
+    // 跳转到溯源页面并携带参数
+    window.location.href = `smart-trace.html?code=${encodeURIComponent(input)}`;
   } else {
     alert(lang === "zh" ? "请输入代码" : "Please enter the code");
   }
