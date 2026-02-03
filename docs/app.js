@@ -225,11 +225,37 @@ function toggleLanguage() {
 // 3. 溯源查询逻辑
 function checkCode() {
   const input = document.getElementById("traceInput").value.trim();
+  const resultBox = document.getElementById("traceResult");
   const lang = config.currentLang;
+  const dict = translations[lang];
 
   if (input.length > 0) {
-    // 跳转到溯源页面并携带参数
-    window.location.href = `smart-trace.html?code=${encodeURIComponent(input)}`;
+    resultBox.classList.remove("hidden");
+    resultBox.innerHTML = dict.trace_loading;
+
+    setTimeout(() => {
+      // 模拟解析码的信息，使其与 smart-trace.js 逻辑一致
+      const parts = input.split("-");
+      const batch = parts.length >= 2 ? parts[1] : "BATCH-2026-A1";
+      const productName =
+        lang === "zh" ? "乐美无菌砖包 250ml" : "Lamipak Aseptic Brick 250ml";
+      const dateProd = "2026.02.03";
+
+      resultBox.innerHTML = `
+                <div class="flex items-start text-left bg-slate-100/50 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-200 dark:border-slate-700">
+                    <div class="text-green-500 mr-3 mt-1">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-gray-800 dark:text-white text-base">${dict.trace_success}</p>
+                        <p class="text-xs text-gray-600 dark:text-gray-400 mt-2"><span class="font-semibold">${dict.trace_batch}:</span> ${batch}</p>
+                        <p class="text-xs text-gray-600 dark:text-gray-400"><span class="font-semibold">${dict.trace_type}:</span> ${productName}</p>
+                        <p class="text-xs text-gray-600 dark:text-gray-400"><span class="font-semibold">${lang === "zh" ? "生产日期" : "Prod Date"}:</span> ${dateProd}</p>
+                        <p class="text-[10px] text-gray-400 mt-2 italic">Code: ${input}</p>
+                    </div>
+                </div>
+            `;
+    }, 800);
   } else {
     alert(lang === "zh" ? "请输入代码" : "Please enter the code");
   }
