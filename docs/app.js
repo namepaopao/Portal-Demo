@@ -31,7 +31,7 @@ const translations = {
       "配备世界一流全自动无菌包装生产设备，年产能可达50亿包。",
     about_products_title: "主营产品",
     about_products_desc:
-      "利美无菌砖包、利美无菌枕包、利美罐产品、纸杯、淋膜纸、复合纸及利美罐灌装机等。",
+      "乐美无菌砖包、乐美无菌枕包、乐美罐产品、纸杯、淋膜纸、复合纸及乐美罐灌装机等。",
     hero_title_1: "重新定义",
     hero_title_accent: "智能与可持续",
     hero_title_2: "的未来包装",
@@ -103,9 +103,9 @@ const translations = {
     kb_tech_trace_desc:
       "采用 Code 128 标准，实现全供应链每一包产品的实时精准追溯。",
     kb_product_title: "产品规格",
-    kb_product_brick: "利美无菌砖",
+    kb_product_brick: "乐美无菌砖",
     kb_product_brick_desc: "125ml - 1000ml 全系列规格，适合常温乳品。 ",
-    kb_product_diamond: "利美钻石包",
+    kb_product_diamond: "乐美钻石包",
     kb_product_diamond_desc: "高端流线型设计，支持 250ml 与 330ml 规格。",
     kb_cta_trace: "立即体验一包一码",
     kb_cta_custom: "开启定制方案",
