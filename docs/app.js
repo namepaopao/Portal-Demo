@@ -335,6 +335,9 @@ function checkCode() {
   }
 }
 
+// Expose translations globally
+window.translations = translations;
+
 // --- 初始化与页面效果 ---
 
 // 1. 滚动淡入效果
