@@ -13,6 +13,7 @@ const translations = {
     nav_home: "首页",
     nav_trace: "一包一码",
     nav_custom: "定制服务",
+    nav_kb: "知识库",
     nav_about: "关于我们",
     nav_contact: "联系我们",
     about_tag: "公司概况",
@@ -91,6 +92,23 @@ const translations = {
     contact_tel: "电话",
     contact_email: "邮箱",
     contact_addr: "地址",
+    // 知识库页面翻译
+    kb_title: "乐美知识库",
+    kb_subtitle: "深耕无菌包装技术，赋能智能包装未来",
+    kb_tech_title: "技术原理",
+    kb_tech_aseptic: "无菌冷灌装技术",
+    kb_tech_aseptic_desc:
+      "乐美专利的无菌灌装工艺，在不添加防腐剂的情况下，实现产品超长保质期。",
+    kb_tech_trace: "条形码赋码技术",
+    kb_tech_trace_desc:
+      "采用 Code 128 标准，实现全供应链每一包产品的实时精准追溯。",
+    kb_product_title: "产品规格",
+    kb_product_brick: "利美无菌砖",
+    kb_product_brick_desc: "125ml - 1000ml 全系列规格，适合常温乳品。 ",
+    kb_product_diamond: "利美钻石包",
+    kb_product_diamond_desc: "高端流线型设计，支持 250ml 与 330ml 规格。",
+    kb_cta_trace: "立即体验一包一码",
+    kb_cta_custom: "开启定制方案",
   },
   en: {
     title: "Lamipak Packaging - Smart Packaging Solutions",
@@ -99,6 +117,7 @@ const translations = {
     nav_home: "Home",
     nav_trace: "Smart Trace",
     nav_custom: "Solutions",
+    nav_kb: "Knowledge Base",
     nav_about: "About Us",
     nav_contact: "Contact",
     about_tag: "WHO WE ARE",
@@ -182,6 +201,24 @@ const translations = {
     contact_tel: "Tel",
     contact_email: "Email",
     contact_addr: "Addr",
+    // Knowledge Base Translations
+    kb_title: "Knowledge Base",
+    kb_subtitle: "Leading Aseptic Tech, Empowering Smart Packaging",
+    kb_tech_title: "Technology",
+    kb_tech_aseptic: "Aseptic Cold Filling",
+    kb_tech_aseptic_desc:
+      "Lamipak's patented process ensures long shelf life without preservatives.",
+    kb_tech_trace: "Barcode Encoding",
+    kb_tech_trace_desc:
+      "Using Code 128 standards for precise real-time supply chain traceability.",
+    kb_product_title: "Specifications",
+    kb_product_brick: "Aseptic Brick",
+    kb_product_brick_desc: "Full range from 125ml to 1000ml for ambient dairy.",
+    kb_product_diamond: "Diamond Pack",
+    kb_product_diamond_desc:
+      "Premium streamlined design in 250ml & 330ml sizes.",
+    kb_cta_trace: "Try Smart Trace",
+    kb_cta_custom: "Start Solution",
   },
 };
 
