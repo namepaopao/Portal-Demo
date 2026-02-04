@@ -15,7 +15,7 @@ const articleData = {
                 <p class="mb-6 opacity-80">乐美包装正致力于研发完全生物可降解的阻隔层，旨在取代传统的铝箔层。我们的目标是在2030年前实现所有包装材料的100%可循环或可堆肥化。</p>
 
                 <div class="p-6 bg-slate-100 dark:bg-slate-800 rounded-2xl border-l-4 border-lemei-500">
-                    <p class="italic text-sm">“包装不再仅仅是液体的容器，它是品牌与消费者之间建立信任、传递温度的数字桥梁。” —— 乐美研发总监</p>
+                    <p class="italic text-sm">包装不再仅仅是液体的容器，它是品牌与消费者之间建立信任、传递温度的数字桥梁。</p>
                 </div>
             `,
     },
@@ -50,20 +50,20 @@ const articleData = {
             `,
     },
     art_4: {
-      title: "案例研究：Z世代包装偏好",
+      title: "案例研究：新世代包装偏好调研",
       content: `
-                <p class="mb-6 text-lg leading-relaxed">Z世代（1995-2009年出生）正逐渐成为全球消费市场的主力军。他们对包装的需求已从基础功能转向“情绪价值”与“道德背书”。</p>
+                <p class="mb-6 text-lg leading-relaxed">随着消费市场的代际交替，以“数字化”和“价值观导向”为特征的新世代消费者正成为驱动行业变革的核心力量。他们对包装的需求已从基础功能性扩展至深层的“品牌共鸣”与“透明度”。</p>
 
-                <h4 class="text-xl font-bold mb-4">视觉冲击与社交货币</h4>
-                <p class="mb-6 opacity-80">鲜明的色彩、流线型的异形包装（如利美钻石包）在社交媒体上具有天然的传播优势。我们的定制打印技术支持更细腻的色彩表现，让每一包产品都成为艺术品。</p>
+                <h4 class="text-xl font-bold mb-4">视觉交互与品牌身份</h4>
+                <p class="mb-6 opacity-80">极具辨识度的异形包装（如乐美钻石包）在数字化传播中展现出巨大的竞争优势。我们通过高精度数字打印技术，支持更精细的品牌个性化表达，使每一件包装都成为品牌故事的载体。</p>
 
-                <h4 class="text-xl font-bold mb-4">AR增强现实的魔法</h4>
-                <p class="mb-6 opacity-80">通过扫码触发AR互动游戏或虚拟代言人，极大提升了开启包装时的仪式感。这种强互动的体验是品牌留住年轻用户、建立忠诚度的有效手段。</p>
+                <h4 class="text-xl font-bold mb-4">数字化赋能的情绪链接</h4>
+                <p class="mb-6 opacity-80">通过“一包一码”触发的AR互动体验或个性化产品故事，显著提升了品牌与消费者之间的互动时段。这种技术驱动的交互不仅增强了开启包装时的仪式感，更为品牌构建了私域运营的精准入口。</p>
 
-                <h4 class="text-xl font-bold mb-4">价值观的投射</h4>
-                <p class="mb-6 opacity-80">调研显示，82%的Z世代更倾向于购买带有环保标识和溯源信息的品牌。透明的供应链数据对他们而言是品牌诚信最直接的体现。</p>
+                <h4 class="text-xl font-bold mb-4">价值主张的显性化</h4>
+                <p class="mb-6 opacity-80">调研数据指出，超过80%的年轻主力消费者倾向于选择拥有清晰“碳足迹”及“溯源链路”的产品。透明的供应链数据已从“合规要求”转变为建立品牌诚信、赢得市场信任的核心资产。</p>
 
-                <p class="mt-4 font-bold">“未来的包装需要会讲故事，讲那些关于美丽、科技与善良的故事。”</p>
+                <p class="mt-4 font-bold">“未来的包装将成为物理世界与数字世界的关键触点，承载美感、技术与企业社会责任。”</p>
             `,
     },
   },
@@ -108,18 +108,20 @@ const articleData = {
             `,
     },
     art_4: {
-      title: "Case Study: Zoomer Packaging Preferences",
+      title: "Case Study: Strategic Packaging Preferences of New Generations",
       content: `
-                <p class="mb-6 text-lg leading-relaxed">Gen Z (born 1995-2009) is becoming the dominant market force. Their demand has shifted from basic functionality to "emotional value" and "ethical endorsement."</p>
+                <p class="mb-6 text-lg leading-relaxed">As the consumer landscape shifts, digital-native generations are emerging as a dominant market force. Their expectations for packaging have evolved beyond basic functionality to encompass "brand resonance" and "proven transparency."</p>
 
-                <h4 class="text-xl font-bold mb-4">Visual Impact as Social Currency</h4>
-                <p class="mb-6 opacity-80">Vibrant colors and streamlined shapes like the Diamond Pack are "social-media ready." Our custom printing ensures every pack is a piece of art.</p>
+                <h4 class="text-xl font-bold mb-4">Visual Identity in the Digital Age</h4>
+                <p class="mb-6 opacity-80">Highly recognizable shapes, such as the Lemei Diamond Pack, provide a distinct competitive advantage in digital marketing. Our high-precision printing allows for sophisticated brand expression, turning every package into a platform for brand storytelling.</p>
 
-                <h4 class="text-xl font-bold mb-4">The Magic of AR</h4>
-                <p class="mb-6 opacity-80">Interactive AR games triggered by scanning enhance the unboxing ritual, building strong loyalty among younger users.</p>
+                <h4 class="text-xl font-bold mb-4">Digital-Enabled Emotional Engagement</h4>
+                <p class="mb-6 opacity-80">Interactive experiences like AR and personalized narratives triggered by "One Pack One Code" significantly extend consumer engagement. This technology-driven interaction enhances the unboxing ritual and provides brands with a direct entry point for customer relationship management.</p>
 
-                <h4 class="text-xl font-bold mb-4">Projection of Values</h4>
-                <p class="mb-6 opacity-80">82% of Gen Z prefers brands with eco-labels and traceability. Transparent supply data is the ultimate proof of brand integrity for them.</p>
+                <h4 class="text-xl font-bold mb-4">Transparency as a Strategic Asset</h4>
+                <p class="mb-6 opacity-80">Research indicates that over 80% of trend-setting consumers prioritize brands that provide clear carbon footprints and traceability data. Transparent supply chain information is now a core asset for building integrity and market trust.</p>
+
+                <p class="mt-4 font-bold italic">"Future packaging will serve as a critical nexus between the physical and digital worlds, embodying aesthetics, technology, and corporate social responsibility."</p>
             `,
     },
   },
