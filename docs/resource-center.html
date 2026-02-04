@@ -47,6 +47,7 @@
                     <a href="customization-request.html" class="nav-link" data-i18n="nav_custom">定制服务</a>
                     <div class="h-6 w-[1px] bg-slate-200 dark:bg-slate-800"></div>
                     <button onclick="toggleLanguage()" class="control-btn px-3 py-2" id="langToggle">EN</button>
+                    <a href="index.html" class="px-6 py-2.5 rounded-full border-2 border-lemei-600 text-lemei-600 dark:text-lemei-300 dark:border-lemei-500 font-semibold hover:bg-lemei-50 dark:hover:bg-lemei-900/30 transition-all" data-i18n="back_home">返回首页</a>
                 </div>
             </div>
         </div>
@@ -86,10 +87,10 @@
                         <div class="p-10 flex-1">
                             <h3 class="text-2xl font-bold mb-4 dark:text-white group-hover:text-lemei-500 transition-colors" data-i18n="art_1_title">无菌包装的未来趋势</h3>
                             <p class="text-slate-600 dark:text-slate-400 mb-8 line-clamp-2" data-i18n="art_1_desc">2026年包装行业将如何演变？探索超轻量化设计与智能交互包装的深度结合。</p>
-                            <a href="#" class="inline-flex items-center font-bold text-lemei-600 group-hover:translate-x-2 transition-transform">
-                                阅读更多
+                            <button onclick="openArticle('art_1')" class="inline-flex items-center font-bold text-lemei-600 group-hover:translate-x-2 transition-transform">
+                                <span data-i18n="read_more">阅读更多</span>
                                 <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                            </a>
+                            </button>
                         </div>
                     </div>
 
@@ -105,10 +106,10 @@
                         <div class="p-10 flex-1">
                             <h3 class="text-2xl font-bold mb-4 dark:text-white group-hover:text-accent transition-colors" data-i18n="art_2_title">区块链技术保障供应链安全</h3>
                             <p class="text-slate-600 dark:text-slate-400 mb-8 line-clamp-2" data-i18n="art_2_desc">一包一码背后：区块链如何确保从林区到终端的全链路透明与真实。</p>
-                            <a href="#" class="inline-flex items-center font-bold text-accent group-hover:translate-x-2 transition-transform">
-                                阅读更多
+                            <button onclick="openArticle('art_2')" class="inline-flex items-center font-bold text-accent group-hover:translate-x-2 transition-transform">
+                                <span data-i18n="read_more">阅读更多</span>
                                 <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                            </a>
+                            </button>
                         </div>
                     </div>
 
@@ -124,10 +125,10 @@
                         <div class="p-10 flex-1">
                             <h3 class="text-2xl font-bold mb-4 dark:text-white group-hover:text-lemei-400 transition-colors" data-i18n="art_3_title">可持续材料：超越可回收</h3>
                             <p class="text-slate-600 dark:text-slate-400 mb-8 line-clamp-2" data-i18n="art_3_desc">深入了解乐美植物基包材的研发历程，以及我们如何实现真正的碳中和目标。</p>
-                            <a href="#" class="inline-flex items-center font-bold text-lemei-600 group-hover:translate-x-2 transition-transform">
-                                阅读更多
+                            <button onclick="openArticle('art_3')" class="inline-flex items-center font-bold text-lemei-600 group-hover:translate-x-2 transition-transform">
+                                <span data-i18n="read_more">阅读更多</span>
                                 <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                            </a>
+                            </button>
                         </div>
                     </div>
 
@@ -143,10 +144,10 @@
                         <div class="p-10 flex-1">
                             <h3 class="text-2xl font-bold mb-4 dark:text-white group-hover:text-lemei-300 transition-colors" data-i18n="art_4_title">案例研究：Z世代包装偏好</h3>
                             <p class="text-slate-600 dark:text-slate-400 mb-8 line-clamp-2" data-i18n="art_4_desc">解析年轻人对数字化、个性化包装的追求，如何通过定制化服务提升品牌忠诚度。</p>
-                            <a href="#" class="inline-flex items-center font-bold text-lemei-600 group-hover:translate-x-2 transition-transform">
-                                阅读更多
+                            <button onclick="openArticle('art_4')" class="inline-flex items-center font-bold text-lemei-600 group-hover:translate-x-2 transition-transform">
+                                <span data-i18n="read_more">阅读更多</span>
                                 <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -229,7 +230,33 @@
         </div>
     </footer>
 
+    <!-- Article Viewer Modal -->
+    <div id="articleModal" class="fixed inset-0 z-[60] hidden overflow-y-auto bg-slate-900/40 backdrop-blur-xl transition-all duration-300">
+        <div class="flex min-h-full items-center justify-center p-4">
+            <div class="relative w-full max-w-4xl transform rounded-[3rem] bg-white dark:bg-darkCard p-8 lg:p-16 shadow-2xl transition-all scale-95 opacity-0 duration-300" id="modalContent">
+                <!-- Close Button -->
+                <button onclick="closeArticle()" class="absolute top-8 right-8 p-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-lemei-500 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+                
+                <div id="articleBody" class="prose prose-slate dark:prose-invert max-w-none">
+                    <!-- Content will be injected here -->
+                </div>
+                
+                <div class="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                    <div class="flex items-center space-x-4">
+                         <div class="w-10 h-10 rounded-full bg-lemei-500/10 flex items-center justify-center text-lemei-600">
+                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
+                         </div>
+                         <span class="text-sm font-bold text-slate-400">Insight by Lamipak Innovation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="app.js"></script>
+    <script src="articles-data.js"></script>
     <script src="resource-center.js"></script>
 </body>
 </html>
