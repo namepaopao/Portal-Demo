@@ -113,6 +113,7 @@ const translations = {
     // 资源中心文章翻译
     res_title: "创新与资源中心",
     res_subtitle: "探索包装行业的最新动态、技术突破与可持续发展洞察",
+    res_articles_title: "最新文章与行业洞察",
     art_1_title: "无菌包装的未来趋势",
     art_1_desc:
       "2026年包装行业将如何演变？探索超轻量化设计与智能交互包装的深度结合。",
@@ -239,6 +240,7 @@ const translations = {
     res_title: "Innovation & Resource Center",
     res_subtitle:
       "Explore the latest trends, technological breakthroughs, and sustainability insights in packaging.",
+    res_articles_title: "Latest Articles & Industry Insights",
     art_1_title: "Future Trends in Aseptic Packaging",
     art_1_desc:
       "How will the industry evolve in 2026? A deep dive into ultra-lightweight design and smart interaction.",
