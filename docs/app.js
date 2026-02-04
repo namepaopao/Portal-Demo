@@ -13,7 +13,7 @@ const translations = {
     nav_home: "首页",
     nav_trace: "一包一码",
     nav_custom: "定制服务",
-    nav_kb: "知识库",
+    nav_resources: "资源中心",
     nav_about: "关于我们",
     nav_contact: "联系我们",
     about_tag: "公司概况",
@@ -109,6 +109,20 @@ const translations = {
     kb_product_diamond_desc: "高端流线型设计，支持 250ml 与 330ml 规格。",
     kb_cta_trace: "立即体验一包一码",
     kb_cta_custom: "开启定制方案",
+    // 资源中心文章翻译
+    res_title: "创新与资源中心",
+    res_subtitle: "探索包装行业的最新动态、技术突破与可持续发展洞察",
+    art_1_title: "无菌包装的未来趋势",
+    art_1_desc:
+      "2026年包装行业将如何演变？探索超轻量化设计与智能交互包装的深度结合。",
+    art_2_title: "区块链技术保障供应链安全",
+    art_2_desc: "一包一码背后：区块链如何确保从林区到终端的全链路透明与真实。",
+    art_3_title: "可持续材料：超越可回收",
+    art_3_desc:
+      "深入了解乐美植物基包材的研发历程，以及我们如何实现真正的碳中和目标。",
+    art_4_title: "案例研究：Z世代包装偏好",
+    art_4_desc:
+      "解析年轻人对数字化、个性化包装的追求，如何通过定制化服务提升品牌忠诚度。",
   },
   en: {
     title: "Lamipak Packaging - Smart Packaging Solutions",
@@ -117,7 +131,7 @@ const translations = {
     nav_home: "Home",
     nav_trace: "Smart Trace",
     nav_custom: "Solutions",
-    nav_kb: "Knowledge Base",
+    nav_resources: "Resource Center",
     nav_about: "About Us",
     nav_contact: "Contact",
     about_tag: "WHO WE ARE",
@@ -219,6 +233,22 @@ const translations = {
       "Premium streamlined design in 250ml & 330ml sizes.",
     kb_cta_trace: "Try Smart Trace",
     kb_cta_custom: "Start Solution",
+    // Resource Center Article Translations
+    res_title: "Innovation & Resource Center",
+    res_subtitle:
+      "Explore the latest trends, technological breakthroughs, and sustainability insights in packaging.",
+    art_1_title: "Future Trends in Aseptic Packaging",
+    art_1_desc:
+      "How will the industry evolve in 2026? A deep dive into ultra-lightweight design and smart interaction.",
+    art_2_title: "Securing Supply Chains with Blockchain",
+    art_2_desc:
+      "Beyond the code: How blockchain ensures transparency and authenticity from forest to consumer.",
+    art_3_title: "Sustainable Materials: Beyond Recyclability",
+    art_3_desc:
+      "Tracing the development of Lamipak's plant-based materials and our journey to carbon neutrality.",
+    art_4_title: "Case Study: Zoomer Packaging Preferences",
+    art_4_desc:
+      "Analyzing Gen Z's demand for digital, personalized packaging and its impact on brand loyalty.",
   },
 };
 

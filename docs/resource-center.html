@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="res_title">创新与资源中心 - 乐美包装</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/logo-dark.svg" type="image/svg+xml">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        lemei: {
+                            50: '#f0f7ff', 100: '#e0effe', 200: '#bae0fd', 300: '#7cc8fb', 400: '#38acf7',
+                            500: '#0e91e9', 600: '#0273c7', 700: '#035ba1', 800: '#074d85', 900: '#0c416e',
+                        },
+                        accent: '#5DA333',
+                        darkBg: '#020617',
+                        darkCard: '#0f172a',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Noto Sans SC', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body class="font-sans text-slate-900 bg-white dark:bg-darkBg transition-colors duration-500 overflow-x-hidden">
+
+    <!-- 导航栏 -->
+    <nav class="fixed w-full z-50 transition-all duration-500 border-b border-transparent bg-white/95 dark:bg-darkBg/95 backdrop-blur-lg shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center group cursor-pointer" onclick="window.location.href='index.html'">
+                    <img src="images/logo-dark.svg" alt="Lamipak Logo" class="w-10 h-10 group-hover:scale-110 transition-transform duration-300" />
+                    <span class="ml-3 font-bold text-2xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-lemei-700 to-lemei-500 dark:from-white dark:to-lemei-200" data-i18n="brand_name">乐美包装</span>
+                </div>
+
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="nav-link" data-i18n="nav_home">首页</a>
+                    <a href="smart-trace.html" class="nav-link" data-i18n="nav_trace">一包一码</a>
+                    <a href="customization-request.html" class="nav-link" data-i18n="nav_custom">定制服务</a>
+                    <div class="h-6 w-[1px] bg-slate-200 dark:bg-slate-800"></div>
+                    <button onclick="toggleLanguage()" class="control-btn px-3 py-2" id="langToggle">EN</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Hero -->
+            <div class="text-center mb-20 fade-in">
+                <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-bold mb-6 border border-accent/20">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.813a1 1 0 00-.788 0l-7 3a1 1 0 000 1.842l7 3a1 1 0 00.788 0l7-3a1 1 0 000-1.842l-7-3zM6.447 11.662L2 9.754V13a1 1 0 00.606.914l7 3a1 1 0 00.788 0l7-3a1 1 0 00.606-.914v-3.246l-4.447 1.908a1 1 0 01-.788 0L10 10.53l-3.553 1.132z"/></svg>
+                    Innovation Hub
+                </div>
+                <h1 class="text-4xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6" data-i18n="res_title">创新与资源中心</h1>
+                <p class="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto" data-i18n="res_subtitle">探索包装行业的最新动态、技术突破与可持续发展洞察</p>
+                <div class="w-24 h-1.5 bg-lemei-500 mx-auto mt-8 rounded-full"></div>
+            </div>
+
+            <!-- 文章与洞察板块 (Rich Content) -->
+            <section class="mb-24 fade-in">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-12 flex items-center">
+                    <span class="w-2 h-8 bg-lemei-500 mr-4 rounded-full"></span>
+                    最新文章与行业洞察
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                    <!-- Article Card 1 -->
+                    <div class="group bg-white dark:bg-darkCard rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-xl hover:shadow-2xl transition-all overflow-hidden flex flex-col">
+                        <div class="h-64 bg-slate-200 dark:bg-slate-700 relative overflow-hidden">
+                             <div class="absolute inset-0 bg-gradient-to-br from-lemei-500 to-lemei-700 opacity-80 group-hover:scale-110 transition-transform duration-700"></div>
+                             <div class="absolute inset-0 flex items-center justify-center">
+                                 <svg class="w-24 h-24 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                             </div>
+                             <div class="absolute top-6 left-6 px-4 py-1 bg-white/20 backdrop-blur-md rounded-full text-white text-xs font-bold uppercase tracking-widest">Industry Trends</div>
+                        </div>
+                        <div class="p-10 flex-1">
+                            <h3 class="text-2xl font-bold mb-4 dark:text-white group-hover:text-lemei-500 transition-colors" data-i18n="art_1_title">无菌包装的未来趋势</h3>
+                            <p class="text-slate-600 dark:text-slate-400 mb-8 line-clamp-2" data-i18n="art_1_desc">2026年包装行业将如何演变？探索超轻量化设计与智能交互包装的深度结合。</p>
+                            <a href="#" class="inline-flex items-center font-bold text-lemei-600 group-hover:translate-x-2 transition-transform">
+                                阅读更多
+                                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Article Card 2 -->
+                    <div class="group bg-white dark:bg-darkCard rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-xl hover:shadow-2xl transition-all overflow-hidden flex flex-col">
+                        <div class="h-64 bg-slate-200 dark:bg-slate-700 relative overflow-hidden">
+                             <div class="absolute inset-0 bg-gradient-to-br from-accent to-accent/80 opacity-80 group-hover:scale-110 transition-transform duration-700"></div>
+                             <div class="absolute inset-0 flex items-center justify-center">
+                                 <svg class="w-24 h-24 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                             </div>
+                             <div class="absolute top-6 left-6 px-4 py-1 bg-white/20 backdrop-blur-md rounded-full text-white text-xs font-bold uppercase tracking-widest">Smart Traceability</div>
+                        </div>
+                        <div class="p-10 flex-1">
+                            <h3 class="text-2xl font-bold mb-4 dark:text-white group-hover:text-accent transition-colors" data-i18n="art_2_title">区块链技术保障供应链安全</h3>
+                            <p class="text-slate-600 dark:text-slate-400 mb-8 line-clamp-2" data-i18n="art_2_desc">一包一码背后：区块链如何确保从林区到终端的全链路透明与真实。</p>
+                            <a href="#" class="inline-flex items-center font-bold text-accent group-hover:translate-x-2 transition-transform">
+                                阅读更多
+                                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Article Card 3 -->
+                    <div class="group bg-white dark:bg-darkCard rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-xl hover:shadow-2xl transition-all overflow-hidden flex flex-col">
+                        <div class="h-64 bg-slate-200 dark:bg-slate-700 relative overflow-hidden">
+                             <div class="absolute inset-0 bg-gradient-to-br from-slate-700 to-slate-900 opacity-80 group-hover:scale-110 transition-transform duration-700"></div>
+                             <div class="absolute inset-0 flex items-center justify-center">
+                                 <svg class="w-24 h-24 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                             </div>
+                             <div class="absolute top-6 left-6 px-4 py-1 bg-white/20 backdrop-blur-md rounded-full text-white text-xs font-bold uppercase tracking-widest">Sustainability</div>
+                        </div>
+                        <div class="p-10 flex-1">
+                            <h3 class="text-2xl font-bold mb-4 dark:text-white group-hover:text-lemei-400 transition-colors" data-i18n="art_3_title">可持续材料：超越可回收</h3>
+                            <p class="text-slate-600 dark:text-slate-400 mb-8 line-clamp-2" data-i18n="art_3_desc">深入了解乐美植物基包材的研发历程，以及我们如何实现真正的碳中和目标。</p>
+                            <a href="#" class="inline-flex items-center font-bold text-lemei-600 group-hover:translate-x-2 transition-transform">
+                                阅读更多
+                                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Article Card 4 -->
+                    <div class="group bg-white dark:bg-darkCard rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-xl hover:shadow-2xl transition-all overflow-hidden flex flex-col">
+                        <div class="h-64 bg-slate-200 dark:bg-slate-700 relative overflow-hidden">
+                             <div class="absolute inset-0 bg-gradient-to-br from-lemei-900 to-lemei-600 opacity-80 group-hover:scale-110 transition-transform duration-700"></div>
+                             <div class="absolute inset-0 flex items-center justify-center">
+                                 <svg class="w-24 h-24 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                             </div>
+                             <div class="absolute top-6 left-6 px-4 py-1 bg-white/20 backdrop-blur-md rounded-full text-white text-xs font-bold uppercase tracking-widest">Case Study</div>
+                        </div>
+                        <div class="p-10 flex-1">
+                            <h3 class="text-2xl font-bold mb-4 dark:text-white group-hover:text-lemei-300 transition-colors" data-i18n="art_4_title">案例研究：Z世代包装偏好</h3>
+                            <p class="text-slate-600 dark:text-slate-400 mb-8 line-clamp-2" data-i18n="art_4_desc">解析年轻人对数字化、个性化包装的追求，如何通过定制化服务提升品牌忠诚度。</p>
+                            <a href="#" class="inline-flex items-center font-bold text-lemei-600 group-hover:translate-x-2 transition-transform">
+                                阅读更多
+                                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 技术与产品概览 (Existing Content, Updated visuals) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <section class="fade-in">
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-8 flex items-center" data-i18n="kb_tech_title">
+                        <span class="w-1.5 h-6 bg-accent mr-3 rounded-full"></span>
+                        核心技术
+                    </h2>
+                    <div class="space-y-4">
+                        <div class="p-6 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800">
+                             <h4 class="font-bold mb-1 dark:text-white" data-i18n="kb_tech_aseptic">无菌冷灌装技术</h4>
+                             <p class="text-sm text-slate-500" data-i18n="kb_tech_aseptic_desc">乐美专利的无菌灌装工艺，在不添加防腐剂的情况下，实现产品超长保质期。</p>
+                        </div>
+                        <div class="p-6 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800">
+                             <h4 class="font-bold mb-1 dark:text-white" data-i18n="kb_tech_trace">条形码赋码技术</h4>
+                             <p class="text-sm text-slate-500" data-i18n="kb_tech_trace_desc">采用 Code 128 标准，实现全供应链每一包产品的实时精准追溯。</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="fade-in">
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-8 flex items-center" data-i18n="kb_product_title">
+                        <span class="w-1.5 h-6 bg-lemei-500 mr-3 rounded-full"></span>
+                        产品线
+                    </h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-6 bg-white dark:bg-darkCard rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm text-center">
+                             <div class="w-12 h-20 bg-lemei-100 dark:bg-lemei-900/20 mx-auto mb-4 rounded"></div>
+                             <p class="font-bold text-sm dark:text-white" data-i18n="kb_product_brick">利美无菌砖</p>
+                        </div>
+                        <div class="p-6 bg-white dark:bg-darkCard rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm text-center">
+                             <div class="w-12 h-20 bg-accent/10 mx-auto mb-4 rounded-full scale-x-75"></div>
+                             <p class="font-bold text-sm dark:text-white" data-i18n="kb_product_diamond">利美钻石包</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 跳转 CTA -->
+            <div class="mt-24 grid grid-cols-1 md:grid-cols-2 gap-6 fade-in">
+                <a href="smart-trace.html" class="relative group overflow-hidden rounded-[2.5rem] bg-lemei-600 p-12 text-white block">
+                    <div class="absolute right-0 bottom-0 opacity-10 group-hover:scale-110 transition-transform duration-700">
+                        <svg class="w-64 h-64" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm12 12a1 1 0 01-1 1h-3a1 1 0 01-1-1v-3a1 1 0 011-1h3a1 1 0 011 1v3zM4 13a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1v-3zm9-9a1 1 0 100-2 1 1 0 000 2z"/></svg>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-bold mb-2" data-i18n="kb_cta_trace">立即体验一包一码</h3>
+                        <p class="text-lemei-100 opacity-60 mb-6">Discover full traceability in action.</p>
+                        <div class="flex items-center text-white font-bold group-hover:translate-x-2 transition-transform">
+                            Go to Smart Trace
+                            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </div>
+                    </div>
+                </a>
+                <a href="customization-request.html" class="relative group overflow-hidden rounded-[2.5rem] bg-slate-900 p-12 text-white block">
+                    <div class="absolute right-0 bottom-0 opacity-10 group-hover:scale-110 transition-transform duration-700">
+                         <svg class="w-64 h-64" fill="currentColor" viewBox="0 0 24 24"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-bold mb-2" data-i18n="kb_cta_custom">开启定制方案</h3>
+                        <p class="text-slate-400 opacity-60 mb-6">Transform your packaging vision.</p>
+                        <div class="flex items-center text-slate-400 font-bold group-hover:translate-x-2 transition-transform">
+                            Go to Customization
+                            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-white dark:bg-darkBg border-t border-slate-100 dark:border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm text-slate-500 dark:text-slate-400">
+                &copy; 2026 <span data-i18n="brand_full">乐美包装 Lamipak Packaging</span>. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="resource-center.js"></script>
+</body>
+</html>
