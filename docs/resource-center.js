@@ -2,6 +2,7 @@
 
 const state = {
   currentLang: localStorage.getItem("lamipak-lang") || "zh",
+  currentArticleId: null,
 };
 
 // Open Article Modal
@@ -9,6 +10,8 @@ function openArticle(articleId) {
   const modal = document.getElementById("articleModal");
   const modalContent = document.getElementById("modalContent");
   const articleBody = document.getElementById("articleBody");
+
+  state.currentArticleId = articleId;
 
   // Get content from articleData (defined in articles-data.js)
   const data = window.articleData[state.currentLang][articleId];
@@ -47,6 +50,7 @@ function closeArticle() {
   setTimeout(() => {
     modal.classList.add("hidden");
     document.body.style.overflow = ""; // Restore scrolling
+    state.currentArticleId = null;
   }, 300);
 }
 
@@ -58,10 +62,31 @@ document.getElementById("articleModal").addEventListener("click", (e) => {
 });
 
 // Sync language state with global toggle
-function syncLanguage() {
-  state.currentLang = localStorage.getItem("lamipak-lang") || "zh";
-  // Re-render if modal is open (optional, but good for UX)
+function syncLanguage(newLang) {
+  state.currentLang = newLang || localStorage.getItem("lamipak-lang") || "zh";
+
+  // Re-render open article if exists
+  if (state.currentArticleId) {
+    const articleBody = document.getElementById("articleBody");
+    const data = window.articleData[state.currentLang][state.currentArticleId];
+    if (data) {
+      articleBody.innerHTML = `
+            <div class="mb-8">
+                <span class="text-lemei-500 font-bold uppercase tracking-widest text-sm">Feature Article</span>
+                <h2 class="text-3xl lg:text-5xl font-extrabold mt-2 dark:text-white">${data.title}</h2>
+            </div>
+            <div class="article-rich-text text-slate-600 dark:text-slate-300">
+                ${data.content}
+            </div>
+        `;
+    }
+  }
 }
+
+// Global listener for language change
+window.addEventListener("languageChanged", (e) => {
+  syncLanguage(e.detail.lang);
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   // Fade in effect for sections

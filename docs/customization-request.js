@@ -329,6 +329,12 @@ function toggleLanguage() {
   updateLanguage();
 }
 
+// Global listener for language change from app.js
+window.addEventListener("languageChanged", (e) => {
+  config.currentLang = e.detail.lang;
+  updateLanguage();
+});
+
 // 5. 表单验证
 function validateForm() {
   const lang = config.currentLang;

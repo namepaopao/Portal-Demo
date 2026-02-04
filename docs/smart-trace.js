@@ -151,6 +151,21 @@ function toggleLanguage() {
   updateLanguage();
 }
 
+// Global listener for language change from app.js
+window.addEventListener("languageChanged", (e) => {
+  config.currentLang = e.detail.lang;
+  updateLanguage();
+
+  // If results are currently showing, re-run verification logic to refresh text
+  const resultScreen = document.getElementById("result-screen");
+  if (resultScreen && resultScreen.style.opacity === "1") {
+    const inputEl = document.getElementById("trace-code-input");
+    if (inputEl.value) {
+      verifyTraceCode(inputEl.value);
+    }
+  }
+});
+
 // Store generated code details
 let lastGeneratedCode = null;
 

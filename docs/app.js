@@ -284,6 +284,11 @@ function updateLanguage() {
     langToggle.textContent = lang === "zh" ? "EN" : "中文";
   }
   localStorage.setItem("lamipak-lang", lang);
+
+  // Dispatch global event for other scripts to react
+  window.dispatchEvent(
+    new CustomEvent("languageChanged", { detail: { lang } }),
+  );
 }
 
 function toggleLanguage() {
